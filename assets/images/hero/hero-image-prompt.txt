@@ -1,0 +1,41 @@
+Create a premium hospital website hero image with these exact requirements:
+
+Scene:
+- Modern multi-speciality hospital exterior in India
+- Large white architectural building with strong blue glass facade
+- Main entrance canopy visible
+- One clean ambulance parked near the entrance
+- Small landscaped green bushes near driveway
+- Bright morning / soft daylight
+- Blue sky with subtle clouds
+- Building placed mostly on the right side of the frame
+- Left side of frame should have enough negative space for website heading text
+
+Visual style:
+- Ultra realistic
+- Corporate healthcare branding
+- Trustworthy, premium, modern, high-end
+- Clean white and blue color palette
+- No dramatic cinematic color grading
+- No cartoon look
+- No exaggerated lens blur
+- No dark mood
+
+Composition:
+- Wide horizontal homepage hero banner
+- Aspect ratio around 16:9 or slightly wider
+- Hospital should feel tall and impressive
+- Entrance area and ambulance should be clearly readable
+- Keep right-side vertical space for a floating feature card overlay
+- Keep bottom-center clear enough for slider dots
+
+Avoid:
+- Crowds
+- Large close-up people
+- Random city traffic
+- Cluttered street elements
+- Extra text baked into the image
+- Watermarks
+
+Prompt:
+"Ultra realistic premium multi-speciality hospital exterior in India, modern white building with blue glass facade, impressive main entrance canopy, clean ambulance parked outside, landscaped greenery, bright soft morning light, blue sky, trustworthy corporate healthcare design, building positioned on the right side, empty soft space on the left for website headline, clean premium website hero banner composition, high-end architectural photography, realistic details, no watermark, no text overlay"

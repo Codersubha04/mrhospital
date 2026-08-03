@@ -1,0 +1,399 @@
+@media (max-width: 1199px) {
+  .appointment-banner__form {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .appointment-banner__submit,
+  .appointment-banner .form-note {
+    grid-column: span 3;
+  }
+
+  .patient-stories__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .services-preview__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .doctors-preview__grid,
+  .leadership__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .doctors-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero__content {
+    left: 3.2%;
+    width: 350px;
+  }
+
+  .hero-highlights {
+    right: 2.5%;
+  }
+
+  .primary-nav__menu {
+    gap: 1rem;
+  }
+
+  .header-actions .btn {
+    padding-inline: 1rem;
+  }
+
+  .hero-metrics,
+  .stats-band__grid,
+  .facility-grid,
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leadership__grid,
+  .quick-actions__grid,
+  .card-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+  .appointment-banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    border-radius: 18px 18px 0 0;
+    min-height: 0;
+    padding-top: 0.85rem;
+    padding-left: 0.85rem;
+  }
+
+  .appointment-banner__content {
+    width: 100%;
+  }
+
+  .appointment-banner__head {
+    text-align: center;
+  }
+
+  .appointment-banner__visual {
+    position: static;
+    margin-top: -0.35rem;
+    justify-content: center;
+  }
+
+  .appointment-banner__doctor-image {
+    width: min(100%, 188px);
+    transform: none;
+  }
+
+  .patient-stories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-preview__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .doctors-preview__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .doctors-nav {
+    display: none;
+  }
+
+  .doctors-preview__grid,
+  .leadership__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .doctors-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  :root {
+    --header-stack-height: 96px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .header-nav__inner {
+    grid-template-columns: auto auto;
+    display: grid;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    justify-self: end;
+  }
+
+  .primary-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .header-nav.menu-open .primary-nav,
+  .header-nav.menu-open .header-actions {
+    display: grid;
+    grid-column: 1 / -1;
+  }
+
+  .header-nav.menu-open .primary-nav__menu,
+  .header-nav.menu-open .header-actions {
+    grid-auto-flow: row;
+    justify-content: stretch;
+  }
+
+  .header-nav.menu-open .primary-nav__menu {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero__grid,
+  .two-column,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__content {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem 1.2rem 1rem;
+    transform: none;
+    justify-content: flex-start;
+  }
+
+  .hero__media {
+    min-height: auto;
+    padding-inline: 1.2rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .hero-stage {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .hero-slider,
+  .hero-slide img {
+    min-height: 420px;
+    height: auto;
+    max-height: none;
+  }
+
+  .hero-highlights {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    margin-top: 1rem;
+    transform: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-slider__arrow {
+    display: none;
+  }
+
+  .hero__image-frame {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-stack-height: 0px;
+    --section-space: clamp(3rem, 10vw, 4rem);
+  }
+
+  .container {
+    width: min(100% - 24px, 1280px);
+  }
+
+  .topbar__inner,
+  .topbar__info,
+  .topbar__links,
+  .section-head,
+  .emergency-cta__inner,
+  .footer-bottom__links,
+  .footer-bottom__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__actions,
+  .hero-metrics,
+  .quick-actions__grid,
+  .mission-grid,
+  .patient-stories__grid,
+  .services-preview__grid,
+  .doctors-preview__grid,
+  .doctors-stats,
+  .card-grid--three,
+  .card-grid--four,
+  .department-grid,
+  .leadership__grid,
+  .facility-grid,
+  .stats-band__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    grid-auto-flow: row;
+  }
+
+  .hero__content {
+    padding-inline: 0.8rem;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-metrics--inline {
+    max-width: none;
+  }
+
+  .hero-slide img {
+    min-height: auto;
+  }
+
+  .hero-slider {
+    min-height: 300px;
+  }
+
+  .hero-stage {
+    min-height: auto;
+    height: auto;
+  }
+
+  .hero__content h1 {
+    max-width: none;
+  }
+
+  .hero__actions .btn {
+    min-width: 0;
+  }
+
+  .doctors-preview .container {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .services-preview .container {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .patient-stories .container {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .footer-grid,
+  .footer-links__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-home .container {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .appointment-banner {
+    padding: 0.9rem 0.85rem 0.85rem;
+  }
+
+  .appointment-banner__form {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-banner__submit,
+  .appointment-banner .form-note {
+    grid-column: auto;
+  }
+
+  .patient-stories__body {
+    grid-template-columns: 1fr;
+  }
+
+  .stories-nav {
+    display: none;
+  }
+
+  .doctors-preview .section-head {
+    gap: 1rem;
+  }
+
+  .doctor-card--specialist .doctor-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-card__actions {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0.35rem;
+  }
+
+  .doctors-stats article {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .doctors-stats article:last-child {
+    border-bottom: 0;
+  }
+
+  .about-home .section-copy h2 {
+    max-width: none;
+  }
+
+  .section-media--about {
+    padding: 0.75rem 0 0;
+  }
+
+  .about-media-play {
+    width: 64px;
+    height: 64px;
+  }
+
+  .media-accent {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .brand__text small {
+    font-size: 0.78rem;
+  }
+
+  .appointment-banner {
+    gap: 0.85rem;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .appointment-banner__field input,
+  .appointment-banner__field select,
+  .appointment-banner__submit {
+    min-height: 44px;
+  }
+}

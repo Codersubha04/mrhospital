@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hospital building placeholder</title>
+  <desc id="desc">Placeholder exterior hospital image for MR Hospital.</desc>
+  <rect width="640" height="520" rx="32" fill="#eff6fc"/>
+  <rect x="135" y="95" width="370" height="310" rx="18" fill="#ffffff" stroke="#0969da" stroke-opacity="0.15"/>
+  <rect x="275" y="125" width="90" height="250" fill="#0969da"/>
+  <rect x="160" y="150" width="90" height="50" fill="#cde7ff"/>
+  <rect x="390" y="150" width="90" height="50" fill="#cde7ff"/>
+  <rect x="160" y="230" width="90" height="50" fill="#cde7ff"/>
+  <rect x="390" y="230" width="90" height="50" fill="#cde7ff"/>
+  <path d="M210 445h220" stroke="#071d35" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="470" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#071d35">Replace with real hospital exterior</text>
+</svg>

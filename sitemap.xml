@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- TODO: Replace example.com with the approved production domain before launch. -->
+  <url><loc>https://www.example.com/</loc></url>
+  <url><loc>https://www.example.com/about.html</loc></url>
+  <url><loc>https://www.example.com/leadership.html</loc></url>
+  <url><loc>https://www.example.com/departments.html</loc></url>
+  <url><loc>https://www.example.com/services.html</loc></url>
+  <url><loc>https://www.example.com/doctors.html</loc></url>
+  <url><loc>https://www.example.com/gallery.html</loc></url>
+  <url><loc>https://www.example.com/testimonials.html</loc></url>
+  <url><loc>https://www.example.com/career.html</loc></url>
+  <url><loc>https://www.example.com/contact.html</loc></url>
+  <url><loc>https://www.example.com/appointment.html</loc></url>
+  <url><loc>https://www.example.com/privacy-policy.html</loc></url>
+</urlset>

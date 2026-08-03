@@ -1,0 +1,178 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-actions__grid .info-card.reveal {
+  transform: translateY(26px) scale(0.97);
+}
+
+.quick-actions__grid .info-card.reveal.is-visible {
+  animation: quickActionRise 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.quick-actions__grid .info-card:nth-child(1).is-visible { animation-delay: 0.04s; }
+.quick-actions__grid .info-card:nth-child(2).is-visible { animation-delay: 0.1s; }
+.quick-actions__grid .info-card:nth-child(3).is-visible { animation-delay: 0.16s; }
+.quick-actions__grid .info-card:nth-child(4).is-visible { animation-delay: 0.22s; }
+.quick-actions__grid .info-card:nth-child(5).is-visible { animation-delay: 0.28s; }
+.quick-actions__grid .info-card:nth-child(6).is-visible { animation-delay: 0.34s; }
+
+.quick-actions__grid .info-card.is-visible .icon-badge {
+  animation: quickActionFloat 4.8s ease-in-out infinite;
+}
+
+.quick-actions__grid .info-card:nth-child(2).is-visible .icon-badge { animation-delay: 0.2s; }
+.quick-actions__grid .info-card:nth-child(3).is-visible .icon-badge { animation-delay: 0.4s; }
+.quick-actions__grid .info-card:nth-child(4).is-visible .icon-badge { animation-delay: 0.6s; }
+.quick-actions__grid .info-card:nth-child(5).is-visible .icon-badge { animation-delay: 0.8s; }
+.quick-actions__grid .info-card:nth-child(6).is-visible .icon-badge { animation-delay: 1s; }
+
+.patient-stories__shell.reveal.is-visible .patient-emergency {
+  animation: patientEmergencyReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.patient-stories__shell.reveal.is-visible .story-card--google {
+  animation: patientStoryCardReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.patient-stories__shell.reveal.is-visible .story-card--google:nth-child(2) { animation-delay: 0.08s; }
+.patient-stories__shell.reveal.is-visible .story-card--google:nth-child(3) { animation-delay: 0.16s; }
+.patient-stories__shell.reveal.is-visible .story-card--google:nth-child(4) { animation-delay: 0.24s; }
+
+.site-footer .footer-grid > * {
+  animation: footerFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-footer .footer-grid > :nth-child(2) { animation-delay: 0.06s; }
+.site-footer .footer-grid > :nth-child(3) { animation-delay: 0.12s; }
+.site-footer .footer-grid > :nth-child(4) { animation-delay: 0.18s; }
+.site-footer .footer-grid > :nth-child(5) { animation-delay: 0.24s; }
+.site-footer .footer-grid > :nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes quickActionRise {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.97);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes quickActionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes patientEmergencyReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes patientStoryCardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes footerFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn,
+  .btn::after,
+  .header-nav,
+  .brand__logo,
+  .primary-nav__menu a::after,
+  .info-card,
+  .mission-card,
+  .doctor-card,
+  .department-card,
+  .service-card,
+  .testimonial-card,
+  .facility-card,
+  .leader-card,
+  .map-card,
+  .icon-badge,
+  .leader-card img,
+  .doctor-card img,
+  .facility-card img,
+  .topbar__info a,
+  .topbar__links a,
+  .topbar__social-link {
+    transition: none;
+  }
+
+  .quick-actions__grid .info-card.reveal,
+  .quick-actions__grid .info-card.reveal.is-visible {
+    transform: none;
+    animation: none;
+  }
+
+  .quick-actions__grid .info-card.is-visible .icon-badge {
+    animation: none;
+  }
+
+  .patient-stories__shell.reveal.is-visible .patient-emergency,
+  .patient-stories__shell.reveal.is-visible .story-card--google,
+  .patient-emergency__media img,
+  .site-footer .footer-grid > * {
+    animation: none;
+  }
+}
