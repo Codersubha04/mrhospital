@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">MR Hospital favicon</title>
+  <desc id="desc">Blue rounded-square favicon with a white medical cross and center plus mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2e7cf0"/>
+      <stop offset="1" stop-color="#0b56bb"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bg)"/>
+  <g fill="#ffffff">
+    <path d="M32 12.5c3.2 0 5.9 2.4 6.3 5.6l.9 7.6 7.6.9c3.2.4 5.6 3.1 5.6 6.3s-2.4 5.9-5.6 6.3l-7.6.9-.9 7.6c-.4 3.2-3.1 5.6-6.3 5.6s-5.9-2.4-6.3-5.6l-.9-7.6-7.6-.9c-3.2-.4-5.6-3.1-5.6-6.3s2.4-5.9 5.6-6.3l7.6-.9.9-7.6c.4-3.2 3.1-5.6 6.3-5.6Zm0 5.9c-.4 0-.7.3-.8.7l-1.2 10-10 1.2c-.4.1-.7.4-.7.8s.3.7.7.8l10 1.2 1.2 10c.1.4.4.7.8.7s.7-.3.8-.7l1.2-10 10-1.2c.4-.1.7-.4.7-.8s-.3-.7-.7-.8l-10-1.2-1.2-10c-.1-.4-.4-.7-.8-.7Z"/>
+    <path d="M27 28h10v8H27z"/>
+    <path d="M28 27h8v10h-8z"/>
+  </g>
+</svg>

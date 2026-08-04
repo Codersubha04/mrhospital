@@ -367,6 +367,105 @@
   .media-accent {
     display: none;
   }
+
+  .about-hero__shell {
+    grid-template-columns: 1fr;
+    width: min(100% - 24px, 1440px);
+  }
+
+  .about-hero__copy {
+    max-width: none;
+    padding: 1rem 0 0;
+  }
+
+  .about-hero__copy p {
+    max-width: none;
+  }
+
+  .about-hero__features {
+    max-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0;
+  }
+
+  .about-hero__feature:nth-child(2) {
+    border-right: 0;
+  }
+
+  .about-hero__feature:nth-child(-n + 2) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(26, 61, 121, 0.11);
+  }
+
+  .about-hero__visual {
+    justify-content: center;
+  }
+
+  .about-hero__visual::before,
+  .about-hero__image-wrap {
+    width: 100%;
+    border-radius: 36px;
+  }
+
+  .about-hero__image-wrap,
+  .about-hero__image-wrap img {
+    min-height: 440px;
+  }
+
+  .about-story__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-story__stat {
+    border-right: 0;
+    border-bottom: 1px solid rgba(30, 70, 134, 0.12);
+  }
+
+  .about-story__stat:nth-last-child(-n + 2),
+  .about-story__stat:last-child {
+    border-bottom: 0;
+  }
+
+  .about-story__panel {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 2rem;
+  }
+
+  .about-story__intro {
+    padding-left: 0.5rem;
+  }
+
+  .about-story__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .director-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .director-feature__media {
+    min-height: 220px;
+  }
+
+  .director-feature__body {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.4rem 1.2rem;
+  }
+
+  .director-feature__copy,
+  .director-feature__contact {
+    padding: 0;
+  }
+
+  .director-feature__contact {
+    border-left: 0;
+    border-top: 1px solid rgba(27, 57, 109, 0.12);
+    padding-top: 1rem;
+  }
+
 }
 
 @media (max-width: 575px) {
@@ -395,5 +494,127 @@
   .appointment-banner__field select,
   .appointment-banner__submit {
     min-height: 44px;
+  }
+
+  .about-hero {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .about-hero__copy h1 {
+    font-size: 2.9rem;
+  }
+
+  .about-hero__copy p {
+    font-size: 1rem;
+    margin-top: 1.15rem;
+  }
+
+  .about-hero__features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__feature {
+    justify-items: start;
+    text-align: left;
+    border-right: 0;
+    border-bottom: 1px solid rgba(26, 61, 121, 0.11);
+    padding: 0.25rem 0 1rem;
+  }
+
+  .about-hero__feature:last-child {
+    border-bottom: 0;
+  }
+
+  .about-hero__feature:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(26, 61, 121, 0.11);
+  }
+
+  .about-hero__image-wrap,
+  .about-hero__image-wrap img {
+    min-height: 300px;
+  }
+
+  .about-story {
+    padding-bottom: 2.5rem;
+  }
+
+  .about-story__shell {
+    width: min(100% - 20px, 1440px);
+  }
+
+  .about-story__stats,
+  .about-story__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story__stat {
+    padding-inline: 0.4rem;
+  }
+
+  .about-story__panel {
+    margin-top: 0.85rem;
+    padding: 1.8rem 1rem 1rem;
+    border-radius: 22px;
+  }
+
+  .about-story__intro {
+    padding: 0.5rem 0.15rem;
+  }
+
+  .about-story__intro h2 {
+    font-size: 2rem;
+  }
+
+  .about-story-card {
+    min-height: auto;
+  }
+
+  .about-directors {
+    padding-bottom: 2.75rem;
+  }
+
+  .about-directors__shell {
+    width: min(100% - 20px, 1440px);
+  }
+
+  .director-feature__count {
+    width: 48px;
+    height: 48px;
+    font-size: 1.55rem;
+  }
+
+  .director-feature__copy h3 {
+    font-size: 1.8rem;
+  }
+
+}
+@media (max-width: 991px) {
+  .coming-soon-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .coming-soon-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .coming-soon-page {
+    padding: 4rem 0;
+  }
+
+  .coming-soon-copy h1 span {
+    display: inline;
+  }
+
+  .coming-soon-card {
+    padding: 1.35rem;
+    border-radius: 26px;
+  }
+
+  .coming-soon-card__top {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

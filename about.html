@@ -3,26 +3,545 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About MR Hospital | Patient-First Multi-Speciality Care</title>
-  <meta name="description" content="Learn more about MR Hospital, our mission, our vision and the patient-first approach behind our multi-speciality care in Patna.">
+  <title>About MR Hospital Patna | Mission, Vision & Patient-First Care</title>
+  <meta name="description" content="Learn about MR Hospital Patna, our mission, vision, patient-first approach, and commitment to trusted multi-speciality healthcare on Bailey Road.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="MR Hospital">
+  <meta name="theme-color" content="#0d59ca">
+  <meta name="keywords" content="about MR Hospital, MR Hospital Patna, hospital mission, patient-first healthcare Patna">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About MR Hospital Patna | Mission, Vision & Patient-First Care">
+  <meta property="og:description" content="Discover the mission, vision, and patient-first care philosophy behind MR Hospital Patna.">
+  <meta property="og:site_name" content="MR Hospital">
+  <meta property="og:image" content="assets/images/hospital/about-showcase-building.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About MR Hospital Patna | Mission, Vision & Patient-First Care">
+  <meta name="twitter:description" content="Learn more about MR Hospital Patna and our commitment to compassionate, modern healthcare.">
+  <meta name="twitter:image" content="assets/images/hospital/about-showcase-building.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-  <main class="inner-page">
-    <section class="inner-hero section">
-      <div class="container">
-        <p class="eyebrow">About</p>
-        <h1>About MR Hospital</h1>
-        <p>This page is scaffolded and ready for the detailed approved content after homepage sign-off.</p>
-        <a class="btn btn-primary" href="index.html">Back to Home</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div class="topbar__info">
+          <p><i class="fa-regular fa-clock topbar__fa" aria-hidden="true"></i>Hours : Daily 24 x 7</p>
+          <p><i class="fa-solid fa-location-dot topbar__fa" aria-hidden="true"></i>Bailey Road, Patna - 800014</p>
+          <a href="tel:+919135351111"><i class="fa-solid fa-phone-volume topbar__fa" aria-hidden="true"></i>+91 9135351111</a>
+          <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope topbar__fa" aria-hidden="true"></i>mrhospital18@gmail.com</a>
+        </div>
+        <div class="topbar__links">
+          <a href="#top"><i class="fa-regular fa-user topbar__fa" aria-hidden="true"></i>Login</a>
+          <a href="#top" aria-label="Facebook" class="topbar__social-link">
+            <i class="fa-brands fa-facebook-f topbar__social-icon" aria-hidden="true"></i>
+          </a>
+          <a href="#top" aria-label="Instagram" class="topbar__social-link">
+            <i class="fa-brands fa-instagram topbar__social-icon" aria-hidden="true"></i>
+          </a>
+          <a href="#top" aria-label="YouTube" class="topbar__social-link">
+            <i class="fa-brands fa-youtube topbar__social-icon" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-nav" data-sticky-header>
+      <div class="container header-nav__inner">
+        <a class="brand" href="index.html" aria-label="MR Hospital home">
+          <img class="brand__logo" src="assets/images/logo/mr-hospital-logo-new.png" alt="MR Hospital logo" width="1752" height="1240">
+          <span class="brand__text">
+            <strong>MR HOSPITAL</strong>
+            <small>Care Beyond Boundaries</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <ul class="primary-nav__menu" id="primary-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-emergency" href="tel:+919135351111">Emergency</a>
+          <a class="btn btn-primary" href="appointment.html">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner-page about-page" id="main-content">
+    <section class="about-hero">
+      <div class="container about-hero__shell">
+        <div class="about-hero__copy reveal">
+          <p class="about-hero__eyebrow">ABOUT US</p>
+          <div class="about-hero__divider" aria-hidden="true">
+            <span></span>
+            <i class="fa-solid fa-wave-square"></i>
+            <span></span>
+          </div>
+          <h1>
+            <span>About</span>
+            <span class="heading-accent">MR Hospital</span>
+          </h1>
+          <p>MR Hospital is a leading multi-speciality hospital in Patna, committed to delivering world-class healthcare with compassion, excellence and integrity.</p>
+
+          <div class="about-hero__features" aria-label="About hospital values">
+            <article class="about-hero__feature">
+              <div class="about-hero__feature-icon" aria-hidden="true">
+                <i class="fa-solid fa-user-doctor"></i>
+              </div>
+              <h3>Patient<br>First</h3>
+            </article>
+            <article class="about-hero__feature">
+              <div class="about-hero__feature-icon" aria-hidden="true">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <h3>Ethical &amp;<br>Transparent</h3>
+            </article>
+            <article class="about-hero__feature">
+              <div class="about-hero__feature-icon" aria-hidden="true">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <h3>Quality &amp;<br>Excellence</h3>
+            </article>
+            <article class="about-hero__feature">
+              <div class="about-hero__feature-icon" aria-hidden="true">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <h3>Compassionate<br>Care</h3>
+            </article>
+          </div>
+        </div>
+
+        <div class="about-hero__visual reveal">
+          <div class="about-hero__image-wrap">
+            <img src="assets/images/hospital/about-showcase-building.png" alt="MR Hospital building exterior with ambulance parked at the entrance" width="1536" height="1024">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-story">
+      <div class="container about-story__shell">
+        <div class="about-story__stats reveal" aria-label="MR Hospital highlights">
+          <article class="about-story__stat">
+            <div class="about-story__stat-icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+            <div>
+              <strong>40+</strong>
+              <span>Expert Doctors</span>
+            </div>
+          </article>
+          <article class="about-story__stat">
+            <div class="about-story__stat-icon" aria-hidden="true"><i class="fa-regular fa-hospital"></i></div>
+            <div>
+              <strong>18+</strong>
+              <span>Departments</span>
+            </div>
+          </article>
+          <article class="about-story__stat">
+            <div class="about-story__stat-icon" aria-hidden="true"><i class="fa-solid fa-user-group"></i></div>
+            <div>
+              <strong>25,000+</strong>
+              <span>Happy Patients</span>
+            </div>
+          </article>
+          <article class="about-story__stat">
+            <div class="about-story__stat-icon" aria-hidden="true"><i class="fa-solid fa-award"></i></div>
+            <div>
+              <strong>15+</strong>
+              <span>Years of Excellence</span>
+            </div>
+          </article>
+          <article class="about-story__stat">
+            <div class="about-story__stat-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></div>
+            <div>
+              <strong>24x7</strong>
+              <span>Emergency Care</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="about-story__panel reveal">
+          <div class="about-story__intro">
+            <p class="about-story__eyebrow">WHO WE ARE</p>
+            <h2>Care Beyond Boundaries</h2>
+            <p>Established with a vision to transform healthcare in the region, MR Hospital combines advanced medical technology, a team of experienced specialists and a patient-centric approach to provide comprehensive care under one roof.</p>
+            <a class="btn btn-outline about-story__cta" href="contact.html">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+
+          <div class="about-story__cards">
+            <article class="about-story-card">
+              <div class="about-story-card__icon" aria-hidden="true"><i class="fa-regular fa-hospital"></i></div>
+              <h3>Advanced Infrastructure</h3>
+              <p>State-of-the-art facilities with modern medical technology.</p>
+            </article>
+            <article class="about-story-card">
+              <div class="about-story-card__icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-medical"></i></div>
+              <h3>Comprehensive Care</h3>
+              <p>Wide range of specialties and integrated healthcare services.</p>
+            </article>
+            <article class="about-story-card">
+              <div class="about-story-card__icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+              <h3>Expert Medical Team</h3>
+              <p>Highly qualified doctors and trained healthcare professionals.</p>
+            </article>
+            <article class="about-story-card">
+              <div class="about-story-card__icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></div>
+              <h3>24x7 Support</h3>
+              <p>Round-the-clock emergency and critical care services.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-directors">
+      <div class="container about-directors__shell">
+        <div class="about-directors__head reveal">
+          <p class="about-directors__eyebrow">OUR LEADERSHIP</p>
+          <h2>Meet Our Directors</h2>
+          <div class="about-directors__divider" aria-hidden="true">
+            <span></span>
+            <i class="fa-solid fa-wave-square"></i>
+            <span></span>
+          </div>
+        </div>
+
+        <article class="director-feature reveal">
+          <div class="director-feature__media">
+            <span class="director-feature__count" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></span>
+            <div class="director-feature__photo-wrap">
+              <img src="assets/images/directors/Mohammad_Saad (1).png" alt="Portrait of Mohammad Saad" width="1600" height="900" loading="lazy">
+              <span class="director-feature__photo-accent" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="director-feature__body">
+            <div class="director-feature__copy">
+              <h3>Mohammad Saad</h3>
+              <p class="director-feature__role">Managing Director</p>
+              <p>A forward-looking healthcare leader focused on operational excellence, patient-first service and long-term institutional growth. Mohammad Saad&apos;s leadership helps drive MR Hospital&apos;s vision of trusted, compassionate and modern care.</p>
+            </div>
+
+            <div class="director-feature__contact">
+              <a href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+              <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>mrhospital18@gmail.com</span></a>
+              <a href="#top" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
+            </div>
+          </div>
+        </article>
+
+        <div class="director-stack reveal">
+          <article class="director-feature director-feature--stacked">
+            <div class="director-feature__media">
+              <span class="director-feature__count" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></span>
+              <div class="director-feature__photo-wrap">
+                <img src="assets/images/directors/Dr_Rafique_Alam.png" alt="Portrait of Dr. Rafique Alam" width="1600" height="900" loading="lazy">
+                <span class="director-feature__photo-accent" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="director-feature__body">
+              <div class="director-feature__copy">
+                <h3>Dr. Rafique Alam</h3>
+                <p class="director-feature__role">Chairman</p>
+                <p>Providing visionary guidance to strengthen trust, compassionate leadership and long-term institutional excellence across MR Hospital&apos;s care ecosystem.</p>
+              </div>
+              <div class="director-feature__contact">
+                <a href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+                <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>mrhospital18@gmail.com</span></a>
+                <a href="#top" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="director-feature director-feature--stacked">
+            <div class="director-feature__media">
+              <span class="director-feature__count" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></span>
+              <div class="director-feature__photo-wrap">
+                <img src="assets/images/directors/Dr_S_Alam.png" alt="Portrait of Dr. S. Alam" width="1600" height="900" loading="lazy">
+                <span class="director-feature__photo-accent" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="director-feature__body">
+              <div class="director-feature__copy">
+                <h3>Dr. S. Alam</h3>
+                <p class="director-feature__role">Director</p>
+                <p>Focused on dependable clinical oversight, patient-centered standards and coordinated systems that support safe, responsive healthcare delivery.</p>
+              </div>
+              <div class="director-feature__contact">
+                <a href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+                <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>mrhospital18@gmail.com</span></a>
+                <a href="#top" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="director-feature director-feature--stacked">
+            <div class="director-feature__media">
+              <span class="director-feature__count" aria-hidden="true"><i class="fa-solid fa-user-group"></i></span>
+              <div class="director-feature__photo-wrap">
+                <img src="assets/images/directors/Dr_A_Rahman.png" alt="Portrait of Dr. A. Rahman" width="1600" height="900" loading="lazy">
+                <span class="director-feature__photo-accent" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="director-feature__body">
+              <div class="director-feature__copy">
+                <h3>Dr. A. Rahman</h3>
+                <p class="director-feature__role">Director</p>
+                <p>Committed to advancing service quality, operational discipline and human-centered healthcare experiences for every patient and family.</p>
+              </div>
+              <div class="director-feature__contact">
+                <a href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+                <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>mrhospital18@gmail.com</span></a>
+                <a href="#top" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="director-feature director-feature--stacked">
+            <div class="director-feature__media">
+              <span class="director-feature__count" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
+              <div class="director-feature__photo-wrap">
+                <img src="assets/images/directors/Kundan_Raj.png" alt="Portrait of Kundan Raj" width="1600" height="900" loading="lazy">
+                <span class="director-feature__photo-accent" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="director-feature__body">
+              <div class="director-feature__copy">
+                <h3>Kundan Raj</h3>
+                <p class="director-feature__role">Executive Director</p>
+                <p>Driving modern administration, strategic execution and future-ready operational systems that help MR Hospital scale with confidence.</p>
+              </div>
+              <div class="director-feature__contact">
+                <a href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+                <a href="mailto:mrhospital18@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>mrhospital18@gmail.com</span></a>
+                <a href="#top" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="patient-stories section">
+      <div class="container patient-stories__shell reveal">
+        <div class="patient-stories__panel">
+          <div class="patient-stories__head">
+            <div class="patient-stories__title-group">
+              <h2>What Our Patients Say</h2>
+              <a class="patient-stories__google-summary" href="https://www.google.com/search?q=MR+HOSPITAL+PATNA+MAZAR+GALI+Bailey+Rd+Patna+reviews" target="_blank" rel="noopener noreferrer" aria-label="View MR Hospital Google reviews">
+                <span class="google-wordmark" aria-hidden="true">
+                  <span class="google-letter google-letter--blue">G</span><span class="google-letter google-letter--red">o</span><span class="google-letter google-letter--yellow">o</span><span class="google-letter google-letter--blue">g</span><span class="google-letter google-letter--green">l</span><span class="google-letter google-letter--red">e</span>
+                </span>
+                <span class="patient-stories__google-meta">4.2 on Google &bull; 2,298 reviews</span>
+              </a>
+            </div>
+          </div>
+          <div class="patient-stories__body">
+            <button class="stories-nav stories-nav--prev" type="button" aria-label="Previous testimonial">
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="patient-stories__viewport" data-reviews-carousel>
+              <div class="patient-stories__grid">
+                <a class="story-card story-card--google" href="https://www.google.com/search?q=MR+HOSPITAL+PATNA+MAZAR+GALI+Bailey+Rd+Patna+reviews" target="_blank" rel="noopener noreferrer" aria-label="Read Sonam Bajwa's Google review">
+                  <div class="story-card__brand">
+                    <span class="google-wordmark" aria-hidden="true">
+                      <span class="google-letter google-letter--blue">G</span><span class="google-letter google-letter--red">o</span><span class="google-letter google-letter--yellow">o</span><span class="google-letter google-letter--blue">g</span><span class="google-letter google-letter--green">l</span><span class="google-letter google-letter--red">e</span>
+                    </span>
+                    <span class="story-card__brand-text">Review</span>
+                  </div>
+                  <div class="story-stars" aria-label="5 out of 5 stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>I recently visited this multispeciality hospital in Bailey Road, Patna with my mother. We were impressed by the organized staff, clean facilities, and specialist care under one roof.</p>
+                  <div class="story-card__footer">
+                    <div>
+                      <h3>Sonam Bajwa</h3>
+                      <span>3 weeks ago</span>
+                    </div>
+                    <div class="story-avatar" aria-hidden="true">S</div>
+                  </div>
+                </a>
+                <a class="story-card story-card--google" href="https://www.google.com/search?q=MR+HOSPITAL+PATNA+MAZAR+GALI+Bailey+Rd+Patna+reviews" target="_blank" rel="noopener noreferrer" aria-label="Read Ayush's Google review">
+                  <div class="story-card__brand">
+                    <span class="google-wordmark" aria-hidden="true">
+                      <span class="google-letter google-letter--blue">G</span><span class="google-letter google-letter--red">o</span><span class="google-letter google-letter--yellow">o</span><span class="google-letter google-letter--blue">g</span><span class="google-letter google-letter--green">l</span><span class="google-letter google-letter--red">e</span>
+                    </span>
+                    <span class="story-card__brand-text">Review</span>
+                  </div>
+                  <div class="story-stars" aria-label="5 out of 5 stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>When my grandmother became breathless in the middle of the night, we rushed her here. The doctors and nurses treated her with such care and kindness that she recovered well.</p>
+                  <div class="story-card__footer">
+                    <div>
+                      <h3>Ayush</h3>
+                      <span>3 weeks ago</span>
+                    </div>
+                    <div class="story-avatar" aria-hidden="true">A</div>
+                  </div>
+                </a>
+                <a class="story-card story-card--google" href="https://www.google.com/search?q=MR+HOSPITAL+PATNA+MAZAR+GALI+Bailey+Rd+Patna+reviews" target="_blank" rel="noopener noreferrer" aria-label="Read Mdsajid Ansari's Google review">
+                  <div class="story-card__brand">
+                    <span class="google-wordmark" aria-hidden="true">
+                      <span class="google-letter google-letter--blue">G</span><span class="google-letter google-letter--red">o</span><span class="google-letter google-letter--yellow">o</span><span class="google-letter google-letter--blue">g</span><span class="google-letter google-letter--green">l</span><span class="google-letter google-letter--red">e</span>
+                    </span>
+                    <span class="story-card__brand-text">Review</span>
+                  </div>
+                  <div class="story-stars" aria-label="5 out of 5 stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>My leg was broken after a fall and I was very worried. The doctors took action very quickly, and now I sincerely thank MR Hospital and the staff for the support.</p>
+                  <div class="story-card__footer">
+                    <div>
+                      <h3>Mdsajid Ansari</h3>
+                      <span>3 months ago</span>
+                    </div>
+                    <div class="story-avatar" aria-hidden="true">M</div>
+                  </div>
+                </a>
+                <a class="story-card story-card--google" href="https://www.google.com/search?q=MR+HOSPITAL+PATNA+MAZAR+GALI+Bailey+Rd+Patna+reviews" target="_blank" rel="noopener noreferrer" aria-label="Read Prince Yadav's Google review">
+                  <div class="story-card__brand">
+                    <span class="google-wordmark" aria-hidden="true">
+                      <span class="google-letter google-letter--blue">G</span><span class="google-letter google-letter--red">o</span><span class="google-letter google-letter--yellow">o</span><span class="google-letter google-letter--blue">g</span><span class="google-letter google-letter--green">l</span><span class="google-letter google-letter--red">e</span>
+                    </span>
+                    <span class="story-card__brand-text">Review</span>
+                  </div>
+                  <div class="story-stars" aria-label="5 out of 5 stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>One of the greatest hospitals in Patna, with supportive staff and great doctors. MR Hospital saved my life and gave me the opportunity to live my life back.</p>
+                  <div class="story-card__footer">
+                    <div>
+                      <h3>Prince Yadav</h3>
+                      <span>4 months ago</span>
+                    </div>
+                    <div class="story-avatar" aria-hidden="true">P</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <button class="stories-nav stories-nav--next" type="button" aria-label="Next testimonial">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <aside class="patient-emergency">
+          <div class="patient-emergency__content">
+            <span class="patient-emergency__eyebrow">24x7 emergency response</span>
+            <h3>Medical Emergency?</h3>
+            <p>Call our rapid-response team for immediate ambulance support and critical care assistance.</p>
+            <a class="patient-emergency__cta" href="tel:+919135351111"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+91 9135351111</span></a>
+          </div>
+          <div class="patient-emergency__media" aria-hidden="true">
+            <img src="assets/images/services/patient-emergency-ambulance.png" alt="" width="640" height="439" loading="lazy">
+          </div>
+        </aside>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="footer-brand__logo" href="index.html" aria-label="MR Hospital home">
+          <img src="assets/images/logo/mr-hospital-logo-white-new.png" alt="MR Hospital white logo" width="1752" height="1240" loading="lazy">
+        </a>
+        <p>Delivering exceptional healthcare with compassion, advanced technology, and a patient-first approach.</p>
+        <div class="footer-socials">
+          <a href="#top" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#top" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#top" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          <a href="#top" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="departments.html">Services</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="contact.html">Patients</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-services">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="services.html">Emergency Care</a></li>
+          <li><a href="services.html">Ambulance Service</a></li>
+          <li><a href="services.html">Health Checkups</a></li>
+          <li><a href="services.html">Diagnostic Services</a></li>
+          <li><a href="services.html">Surgery &amp; Procedures</a></li>
+          <li><a href="services.html">Patient Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h3>Patient Info</h3>
+        <ul>
+          <li><a href="contact.html">Patient Guide</a></li>
+          <li><a href="contact.html">Insurance</a></li>
+          <li><a href="departments.html">Health Packages</a></li>
+          <li><a href="contact.html">Medical Records</a></li>
+          <li><a href="contact.html">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Pillar No 76, Bailey Road,<br>Raja Bazar, Patna - 800014</span></li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+919135351111">+91 9135351111</a></li>
+          <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="mailto:mrhospital18@gmail.com">mrhospital18@gmail.com</a></li>
+          <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Open 24x7</span></li>
+        </ul>
+      </div>
+      <div class="footer-map">
+        <h3>Locate Us</h3>
+        <div class="footer-map__card" aria-label="Map preview of MR Hospital location">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna location map"></iframe>
+        </div>
+        <a class="btn btn-primary footer-map__directions" href="https://www.google.com/maps/dir/?api=1&destination=MR+HOSPITAL+PATNA" target="_blank" rel="noopener noreferrer">Get Directions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom__inner">
+        <p>&copy; 2026 MR Hospital. All Rights Reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="privacy-policy.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
