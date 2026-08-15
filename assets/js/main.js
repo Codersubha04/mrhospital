@@ -6,6 +6,15 @@ const heroHighlights = document.querySelector("[data-hero-highlights]");
 const doctorsCarousel = document.querySelector("[data-doctors-carousel]");
 const reviewsCarousel = document.querySelector("[data-reviews-carousel]");
 const revealElements = document.querySelectorAll(".reveal");
+const photoPopup = document.querySelector("[data-photo-popup]");
+const photoPopupImage = photoPopup?.querySelector("[data-photo-popup-image]");
+const photoPopupName = photoPopup?.querySelector("[data-photo-popup-name]");
+const photoPopupRole = photoPopup?.querySelector("[data-photo-popup-role]");
+const photoPopupDescription = photoPopup?.querySelector("[data-photo-popup-description]");
+const photoPopupLink = photoPopup?.querySelector("[data-photo-popup-link]");
+const photoPopupTriggers = document.querySelectorAll("[data-photo-popup-trigger]");
+const photoPopupClosers = photoPopup?.querySelectorAll("[data-photo-popup-close]");
+let lastPhotoTrigger = null;
 
 if (stickyHeader && siteHeader) {
   const toggleStickyClass = () => {
@@ -23,10 +32,33 @@ if (stickyHeader && siteHeader) {
 }
 
 if (navToggle && headerNav) {
+  const closeMenu = () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    headerNav.classList.remove("menu-open");
+    document.body.classList.remove("menu-open-mobile");
+  };
+
   navToggle.addEventListener("click", () => {
     const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!isExpanded));
     headerNav.classList.toggle("menu-open", !isExpanded);
+    document.body.classList.toggle("menu-open-mobile", !isExpanded && window.innerWidth <= 1023);
+  });
+
+  headerNav.querySelectorAll(".primary-nav a, .header-actions a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1023) {
+      closeMenu();
+    }
   });
 }
 
@@ -254,4 +286,61 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => observer.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
+}
+
+if (photoPopup && photoPopupImage && photoPopupTriggers.length > 0) {
+  const closePhotoPopup = () => {
+    photoPopup.hidden = true;
+    document.body.style.overflow = "";
+
+    if (lastPhotoTrigger) {
+      lastPhotoTrigger.focus();
+      lastPhotoTrigger = null;
+    }
+  };
+
+  const openPhotoPopup = (trigger) => {
+    const imageSrc = trigger.getAttribute("data-photo-src");
+    const imageAlt = trigger.getAttribute("data-photo-alt") || "";
+    const imageName = trigger.getAttribute("data-photo-name") || "";
+    const imageRole = trigger.getAttribute("data-photo-role") || "";
+    const imageDescription = trigger.getAttribute("data-photo-description") || "";
+    const imageLink = trigger.getAttribute("data-photo-link") || "leadership.html";
+
+    if (!imageSrc) {
+      return;
+    }
+
+    lastPhotoTrigger = trigger;
+    photoPopupImage.src = imageSrc;
+    photoPopupImage.alt = imageAlt;
+    if (photoPopupName) {
+      photoPopupName.textContent = imageName;
+    }
+    if (photoPopupRole) {
+      photoPopupRole.textContent = imageRole;
+    }
+    if (photoPopupDescription) {
+      photoPopupDescription.textContent = imageDescription;
+    }
+    if (photoPopupLink) {
+      photoPopupLink.href = imageLink;
+    }
+    photoPopup.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+
+  photoPopupTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openPhotoPopup(trigger));
+  });
+
+  photoPopupClosers?.forEach((closer) => {
+    closer.addEventListener("click", closePhotoPopup);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !photoPopup.hidden) {
+      closePhotoPopup();
+    }
+  });
 }

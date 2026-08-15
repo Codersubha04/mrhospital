@@ -46,6 +46,37 @@
 .patient-stories__shell.reveal.is-visible .story-card--google:nth-child(3) { animation-delay: 0.16s; }
 .patient-stories__shell.reveal.is-visible .story-card--google:nth-child(4) { animation-delay: 0.24s; }
 
+.departments-explore__grid .department-showcase-card.reveal {
+  transform: translateY(24px) scale(0.97);
+}
+
+.departments-explore__grid .department-showcase-card.reveal.is-visible {
+  animation: departmentCardReveal 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.departments-explore__grid .department-showcase-card:nth-child(1).is-visible { animation-delay: 0.03s; }
+.departments-explore__grid .department-showcase-card:nth-child(2).is-visible { animation-delay: 0.08s; }
+.departments-explore__grid .department-showcase-card:nth-child(3).is-visible { animation-delay: 0.13s; }
+.departments-explore__grid .department-showcase-card:nth-child(4).is-visible { animation-delay: 0.18s; }
+.departments-explore__grid .department-showcase-card:nth-child(5).is-visible { animation-delay: 0.23s; }
+.departments-explore__grid .department-showcase-card:nth-child(6).is-visible { animation-delay: 0.28s; }
+.departments-explore__grid .department-showcase-card:nth-child(7).is-visible { animation-delay: 0.05s; }
+.departments-explore__grid .department-showcase-card:nth-child(8).is-visible { animation-delay: 0.1s; }
+.departments-explore__grid .department-showcase-card:nth-child(9).is-visible { animation-delay: 0.15s; }
+.departments-explore__grid .department-showcase-card:nth-child(10).is-visible { animation-delay: 0.2s; }
+.departments-explore__grid .department-showcase-card:nth-child(11).is-visible { animation-delay: 0.25s; }
+.departments-explore__grid .department-showcase-card:nth-child(12).is-visible { animation-delay: 0.3s; }
+
+.departments-explore__grid .department-showcase-card.is-visible .department-showcase-card__icon {
+  animation: departmentIconFloat 5.4s ease-in-out infinite;
+}
+
+.departments-explore__grid .department-showcase-card:nth-child(2).is-visible .department-showcase-card__icon { animation-delay: 0.2s; }
+.departments-explore__grid .department-showcase-card:nth-child(3).is-visible .department-showcase-card__icon { animation-delay: 0.4s; }
+.departments-explore__grid .department-showcase-card:nth-child(4).is-visible .department-showcase-card__icon { animation-delay: 0.6s; }
+.departments-explore__grid .department-showcase-card:nth-child(5).is-visible .department-showcase-card__icon { animation-delay: 0.8s; }
+.departments-explore__grid .department-showcase-card:nth-child(6).is-visible .department-showcase-card__icon { animation-delay: 1s; }
+
 .site-footer .footer-grid > * {
   animation: footerFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -112,6 +143,33 @@
   }
 }
 
+@keyframes departmentCardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  62% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes departmentIconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 @keyframes footerFadeUp {
   0% {
     opacity: 0;
@@ -160,12 +218,15 @@
   }
 
   .quick-actions__grid .info-card.reveal,
-  .quick-actions__grid .info-card.reveal.is-visible {
+  .quick-actions__grid .info-card.reveal.is-visible,
+  .departments-explore__grid .department-showcase-card.reveal,
+  .departments-explore__grid .department-showcase-card.reveal.is-visible {
     transform: none;
     animation: none;
   }
 
-  .quick-actions__grid .info-card.is-visible .icon-badge {
+  .quick-actions__grid .info-card.is-visible .icon-badge,
+  .departments-explore__grid .department-showcase-card.is-visible .department-showcase-card__icon {
     animation: none;
   }
 
