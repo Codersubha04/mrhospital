@@ -363,3 +363,123 @@ if (photoPopup && photoPopupImage && photoPopupTriggers.length > 0) {
     }
   });
 }
+
+const appointmentDoctorOptions = {
+  "Neurosciences": [
+    "Dr. S K Singh",
+    "Dr. B. Kumar Singh",
+    "Dr. A K Jha",
+    "Dr. Hemant Kumar",
+  ],
+  "Orthopaedics & Joint Replacement": [
+    "Dr. Prabhat Kumar",
+    "Dr. Tazadar Hamesh",
+    "Dr. Naveen Upadhyay",
+  ],
+  "Cancer Treatment & Radiotherapy": [
+    "Dr. Hari Har Nath",
+    "Dr. S.P. Singh",
+    "Dr. Shekhar Keshri",
+    "Dr. S. Pawar",
+  ],
+  "Urology": [
+    "Dr. Md. Faizul Haque",
+    "Dr. Rohit Kumar",
+  ],
+  "Nephrology": [
+    "Dr. Jamsed Anwer",
+  ],
+  "Obstetrics & Gynaecology": [
+    "Dr. Sonali Gupta",
+    "Dr. Rekha Kumari",
+  ],
+  "Neonatology & Pediatrics": [
+    "Dr. R Ahmar",
+    "Dr. Ansuman",
+  ],
+  "Cardiology & Cardiac Surgery": [
+    "Dr. S.N. Singh",
+    "Dr. Abhinash Kumar",
+    "Dr. Ram Sagar Ray",
+    "Dr. Pramod Kumar",
+    "Dr. Neeraj Kumar",
+  ],
+  "General Surgery": [
+    "Dr. Manish Kumar",
+  ],
+  "Gastroenterology": [
+    "Dr. T.N Raj",
+    "Dr. Amitesh Kumar",
+    "Dr. Md. Shahid Siddiqui",
+  ],
+  "ENT": [
+    "Dr. S.S Prasad",
+    "Dr. Deepak Raman",
+  ],
+  "Pulmonary Medicine": [
+    "Dr. A. Ejaji",
+    "Dr. Kumar Abhishek",
+  ],
+  "Anaesthesia": [
+    "Dr. Satish Kumar",
+    "Dr. Anil Kumar",
+  ],
+  "Plastic & Cosmetic Surgery": [
+    "Dr. Sanjay Kumar",
+  ],
+  "Pediatric Surgery": [
+    "Dr. Om Purve",
+  ],
+  "Oral & Maxillofacial Surgery": [
+    "Dr. Mandeep",
+    "Dr. Wasim",
+  ],
+  "Ophthalmology": [
+    "Dr. Binod Kumar",
+  ],
+};
+
+document.querySelectorAll(".appointment-banner__form").forEach((form) => {
+  const departmentSelect = form.querySelector('select[name="department"]');
+  const doctorSelect = form.querySelector('select[name="doctor"]');
+
+  if (!departmentSelect || !doctorSelect) {
+    return;
+  }
+
+  const renderDoctorOptions = (department) => {
+    const doctors = appointmentDoctorOptions[department] || [];
+
+    doctorSelect.innerHTML = "";
+
+    if (!department) {
+      doctorSelect.insertAdjacentHTML("beforeend", '<option value="">Select Doctor</option>');
+      doctorSelect.disabled = true;
+      return;
+    }
+
+    if (doctors.length === 0) {
+      doctorSelect.insertAdjacentHTML("beforeend", '<option value="">Doctor will be assigned</option>');
+      doctorSelect.disabled = true;
+      return;
+    }
+
+    doctorSelect.insertAdjacentHTML("beforeend", '<option value="">Select Doctor</option>');
+
+    doctors.forEach((doctor) => {
+      const option = document.createElement("option");
+      option.value = doctor;
+      option.textContent = doctor;
+      doctorSelect.appendChild(option);
+    });
+
+    doctorSelect.disabled = false;
+  };
+
+  renderDoctorOptions(departmentSelect.value);
+
+  departmentSelect.addEventListener("change", () => {
+    renderDoctorOptions(departmentSelect.value);
+    doctorSelect.value = "";
+  });
+});

@@ -333,26 +333,39 @@
           </div>
           <form class="appointment-banner__form" action="forms/appointment.php" method="post" novalidate data-form-validate>
             <div class="appointment-banner__field">
-              <label for="departments-name">Your Name</label>
-              <input id="departments-name" name="full_name" type="text" placeholder="Enter your name" required>
+              <label for="home-name">Your Name</label>
+              <input id="home-name" name="full_name" type="text" placeholder="Enter your name" required>
             </div>
             <div class="appointment-banner__field">
-              <label for="departments-phone">Phone Number</label>
-              <input id="departments-phone" name="phone" type="tel" placeholder="Enter your number" required pattern="[0-9+\-\s]{10,}">
+              <label for="home-phone">Phone Number</label>
+              <input id="home-phone" name="phone" type="tel" placeholder="Enter your number" required pattern="[0-9+\-\s]{10,}">
             </div>
             <div class="appointment-banner__field">
-              <label for="departments-department">Department</label>
-              <select id="departments-department" name="department" required>
+              <label for="home-department">Department</label>
+              <select id="home-department" name="department" required>
                 <option value="">Select Department</option>
-                <option>Cardiology &amp; Cardiac Surgery</option>
-                <option>Orthopaedics &amp; Joint Replacement</option>
                 <option>Neurosciences</option>
+                <option>Orthopaedics &amp; Joint Replacement</option>
+                <option>Cancer Treatment &amp; Radiotherapy</option>
+                <option>Urology</option>
+                <option>Nephrology</option>
+                <option>Obstetrics &amp; Gynaecology</option>
+                <option>Neonatology &amp; Pediatrics</option>
+                <option>Cardiology &amp; Cardiac Surgery</option>
                 <option>General Surgery</option>
+                <option>Gastroenterology</option>
+                <option>ENT</option>
+                <option>Pulmonary Medicine</option>
+                <option>Anaesthesia</option>
+                <option>Plastic &amp; Cosmetic Surgery</option>
+                <option>Pediatric Surgery</option>
+                <option>Oral &amp; Maxillofacial Surgery</option>
+                <option>Ophthalmology</option>
               </select>
             </div>
             <div class="appointment-banner__field">
-              <label for="departments-doctor">Doctor</label>
-              <select id="departments-doctor" name="doctor">
+              <label for="home-doctor">Doctor</label>
+              <select id="home-doctor" name="doctor">
                 <option value="">Select Doctor</option>
                 <option>Dr. Manish Kumar</option>
                 <option>Dr. Prabhat Kumar</option>
@@ -360,8 +373,8 @@
               </select>
             </div>
             <div class="appointment-banner__field appointment-banner__field--date">
-              <label for="departments-date">Preferred Date</label>
-              <input id="departments-date" name="preferred_date" type="date" required>
+              <label for="home-date">Preferred Date</label>
+              <input id="home-date" name="preferred_date" type="date" required>
             </div>
             <button class="btn btn-primary appointment-banner__submit" type="submit"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>Book Appointment</span></button>
             <p class="form-note" aria-live="polite"></p>
