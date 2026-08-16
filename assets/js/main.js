@@ -32,6 +32,25 @@ if (stickyHeader && siteHeader) {
 }
 
 if (navToggle && headerNav) {
+  if (!navToggle.querySelector(".nav-toggle__line")) {
+    const srOnlyLabel = navToggle.querySelector(".sr-only");
+
+    navToggle.innerHTML = "";
+    navToggle.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <span class="nav-toggle__line nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="nav-toggle__line nav-toggle__line--bottom" aria-hidden="true"></span>
+      `
+    );
+
+    if (srOnlyLabel) {
+      navToggle.appendChild(srOnlyLabel);
+    } else {
+      navToggle.insertAdjacentHTML("beforeend", '<span class="sr-only">Toggle navigation</span>');
+    }
+  }
+
   const closeMenu = () => {
     navToggle.setAttribute("aria-expanded", "false");
     headerNav.classList.remove("menu-open");
