@@ -86,39 +86,214 @@
     </div>
   </header>
 
-  <main class="inner-page" id="main-content">
-    <section class="coming-soon-page">
-      <div class="container coming-soon-shell reveal">
-        <div class="coming-soon-copy">
-          <p class="eyebrow">Doctors Page</p>
-          <h1>Expert Doctors <span>Coming Soon</span></h1>
-          <p>We are preparing a dedicated doctors directory where patients will be able to browse specialists, understand expertise areas, and move directly toward consultation booking.</p>
-          <div class="coming-soon-meta">
-            <span class="coming-soon-pill"><i class="fa-solid fa-user-doctor"></i>Specialist profiles</span>
-            <span class="coming-soon-pill"><i class="fa-solid fa-stethoscope"></i>Department wise doctors</span>
-            <span class="coming-soon-pill"><i class="fa-solid fa-calendar-days"></i>Consultation-ready flow</span>
-          </div>
-          <div class="coming-soon-actions">
-            <a class="btn btn-primary" href="index.html">Back to Home</a>
-            <a class="btn btn-outline" href="appointment.html">Book Appointment</a>
+  <main class="inner-page doctors-page" id="main-content">
+    <section class="doctors-hero">
+      <div class="doctors-hero__shell reveal">
+        <div class="doctors-hero__visual">
+          <div class="doctors-hero__image-wrap">
+            <img src="assets/images/doctors/doctors-hero-specialists.png" alt="MR Hospital specialist doctors standing together in hospital lobby" width="1792" height="1024">
           </div>
         </div>
 
-        <aside class="coming-soon-card reveal">
-          <div class="coming-soon-card__top">
-            <span class="coming-soon-card__badge"><i class="fa-solid fa-briefcase-medical"></i>Profile Section Pending</span>
-            <div class="coming-soon-card__icon"><i class="fa-solid fa-user-doctor"></i></div>
-          </div>
-          <div class="coming-soon-card__bottom">
-            <h2 class="coming-soon-card__title">Find The Right Specialist</h2>
-            <p class="coming-soon-card__text">This page will soon give patients a cleaner way to choose doctors based on speciality, experience, and care focus.</p>
-            <div class="coming-soon-card__list">
-              <div class="coming-soon-card__item"><i class="fa-solid fa-id-badge"></i><div><strong>Doctor Profiles</strong><span>Experience, qualification and speciality</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-filter"></i><div><strong>Better Discovery</strong><span>Browse specialists by department</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-phone"></i><div><strong>Quick Connect</strong><span>Easy route to consultation support</span></div></div>
+        <div class="doctors-hero__content">
+          <div class="doctors-hero__content-inner">
+            <h1>Our Specialist <span class="doctors-hero__title-accent">Doctors</span></h1>
+
+            <div class="doctors-hero__pulse" aria-hidden="true">
+              <span></span>
+              <i class="fa-solid fa-wave-square"></i>
+              <span></span>
+            </div>
+
+            <p class="doctors-hero__lead">Experienced. Compassionate. Committed to you. Our team of highly qualified specialists provides advanced medical care with compassion and excellence.</p>
+
+            <div class="doctors-hero__features" aria-label="Doctors page highlights">
+              <article class="doctors-hero__feature">
+                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+                <div>
+                  <h2>Expert &amp; Experienced</h2>
+                  <p>Medical Experts</p>
+                </div>
+              </article>
+              <article class="doctors-hero__feature">
+                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
+                <div>
+                  <h2>Patient First</h2>
+                  <p>Personalized Care</p>
+                </div>
+              </article>
+              <article class="doctors-hero__feature">
+                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></div>
+                <div>
+                  <h2>Advanced Treatment</h2>
+                  <p>Modern Technology</p>
+                </div>
+              </article>
+              <article class="doctors-hero__feature">
+                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+                <div>
+                  <h2>Ethical &amp; Transparent</h2>
+                  <p>Trusted Care</p>
+                </div>
+              </article>
             </div>
           </div>
+        </div>
+
+        <aside class="doctors-hero__stats-card reveal" aria-label="MR Hospital doctor highlights">
+          <article class="doctors-hero__stat">
+            <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
+            <div>
+              <strong>40+</strong>
+              <span>Expert Doctors</span>
+            </div>
+          </article>
+          <article class="doctors-hero__stat">
+            <i class="fa-regular fa-hospital" aria-hidden="true"></i>
+            <div>
+              <strong>18+</strong>
+              <span>Departments</span>
+            </div>
+          </article>
+          <article class="doctors-hero__stat">
+            <i class="fa-solid fa-users-line" aria-hidden="true"></i>
+            <div>
+              <strong>25,000+</strong>
+              <span>Happy Patients</span>
+            </div>
+          </article>
+          <article class="doctors-hero__stat">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <div>
+              <strong>24x7</strong>
+              <span>Emergency Care</span>
+            </div>
+          </article>
         </aside>
+      </div>
+    </section>
+
+    <section class="doctor-finder section">
+      <div class="container">
+        <div class="doctor-finder__shell reveal">
+          <div class="doctor-finder__head">
+            <h2>Find the Right Doctor</h2>
+            <p>Search by doctor name, choose department, specialization, or availability to find the best consultation match for your care.</p>
+          </div>
+
+          <form class="doctor-finder__filters" data-doctor-finder-form>
+            <label class="sr-only" for="doctor-search-keyword">Search doctor</label>
+            <div class="doctor-finder__field doctor-finder__field--search">
+              <input id="doctor-search-keyword" type="search" name="keyword" placeholder="Search by name or keyword">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </div>
+
+            <label class="sr-only" for="doctor-search-department">Select Department</label>
+            <div class="doctor-finder__field">
+              <select id="doctor-search-department" name="department">
+                <option value="">Select Department</option>
+              </select>
+            </div>
+
+            <label class="sr-only" for="doctor-search-specialization">Select Specialization</label>
+            <div class="doctor-finder__field">
+              <select id="doctor-search-specialization" name="specialization">
+                <option value="">Select Specialization</option>
+              </select>
+            </div>
+
+            <label class="sr-only" for="doctor-search-availability">Select Availability</label>
+            <div class="doctor-finder__field">
+              <select id="doctor-search-availability" name="availability">
+                <option value="">Select Availability</option>
+                <option value="Available Today">Available Today</option>
+                <option value="Consultation Hours">Consultation Hours</option>
+                <option value="On Call">On Call</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary doctor-finder__submit" type="submit">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <span>Search</span>
+            </button>
+          </form>
+
+          <div class="doctor-finder__toolbar">
+            <p class="doctor-finder__count" data-doctor-results-count>Showing all doctors</p>
+            <div class="doctor-finder__listing-head">
+              <p class="doctors-preview__eyebrow doctor-finder__eyebrow">Our Specialist Doctors</p>
+            </div>
+            <button class="doctor-finder__reset" type="button" data-doctor-finder-reset>Reset Filters</button>
+          </div>
+
+          <div class="doctor-finder__grid" data-doctor-results></div>
+          <div class="doctor-finder__actions" data-doctor-results-actions>
+            <button class="doctor-finder__more" type="button" data-doctor-load-more>
+              <span>View More Doctors</span>
+              <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="doctor-finder__empty" data-doctor-empty hidden>No doctors match your current filters. Try another department or reset the search.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="appointment-home section">
+      <div class="container appointment-banner reveal">
+        <div class="appointment-banner__visual" aria-hidden="true">
+          <img class="appointment-banner__doctor-image" src="assets/images/doctors/appointment-doctor-cutout.png" alt="" width="1280" height="1280" loading="lazy">
+        </div>
+        <div class="appointment-banner__content">
+          <div class="appointment-banner__head">
+            <h2>Book Your Appointment</h2>
+            <p>We will respond you shortly</p>
+          </div>
+          <form class="appointment-banner__form" action="forms/appointment.php" method="post" novalidate data-form-validate>
+            <div class="appointment-banner__field">
+              <label for="doctors-appointment-name">Your Name</label>
+              <input id="doctors-appointment-name" name="full_name" type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="appointment-banner__field">
+              <label for="doctors-appointment-phone">Phone Number</label>
+              <input id="doctors-appointment-phone" name="phone" type="tel" placeholder="Enter your number" required pattern="[0-9+\-\s]{10,}">
+            </div>
+            <div class="appointment-banner__field">
+              <label for="doctors-appointment-department">Department</label>
+              <select id="doctors-appointment-department" name="department" required>
+                <option value="">Select Department</option>
+                <option>Neurosciences</option>
+                <option>Orthopaedics &amp; Joint Replacement</option>
+                <option>Cancer Treatment &amp; Radiotherapy</option>
+                <option>Urology</option>
+                <option>Nephrology</option>
+                <option>Obstetrics &amp; Gynaecology</option>
+                <option>Neonatology &amp; Pediatrics</option>
+                <option>Cardiology &amp; Cardiac Surgery</option>
+                <option>General Surgery</option>
+                <option>Gastroenterology</option>
+                <option>ENT</option>
+                <option>Pulmonary Medicine</option>
+                <option>Anaesthesia</option>
+                <option>Plastic &amp; Cosmetic Surgery</option>
+                <option>Pediatric Surgery</option>
+                <option>Oral &amp; Maxillofacial Surgery</option>
+                <option>Ophthalmology</option>
+              </select>
+            </div>
+            <div class="appointment-banner__field">
+              <label for="doctors-appointment-doctor">Doctor</label>
+              <select id="doctors-appointment-doctor" name="doctor">
+                <option value="">Select department first</option>
+              </select>
+            </div>
+            <div class="appointment-banner__field appointment-banner__field--date">
+              <label for="doctors-appointment-date">Preferred Date</label>
+              <input id="doctors-appointment-date" name="preferred_date" type="date" required>
+            </div>
+            <button class="btn btn-primary appointment-banner__submit" type="submit"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>Book Appointment</span></button>
+            <p class="form-note" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
