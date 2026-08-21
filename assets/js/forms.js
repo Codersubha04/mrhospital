@@ -29,6 +29,27 @@ const departmentDoctorLookup = new Map(
 
 const forms = document.querySelectorAll("[data-form-validate]");
 
+const getQueryStatus = () => {
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get("contact_status");
+  const message = params.get("contact_message");
+
+  if (!status || !message) {
+    return null;
+  }
+
+  return { status, message };
+};
+
+const applyStatusMessage = (note, message, color) => {
+  if (!note) {
+    return;
+  }
+
+  note.textContent = message;
+  note.style.color = color;
+};
+
 const setSelectOptions = (select, options, placeholder) => {
   if (!select) {
     return;
@@ -104,12 +125,26 @@ const syncDoctorOptions = (departmentSelect, doctorSelect, note) => {
 };
 
 forms.forEach((form) => {
-  const note = form.querySelector(".form-note");
+  const note = form.querySelector("[data-form-status]") || form.querySelector(".form-note");
   const departmentSelect = form.querySelector('select[name="department"]');
   const doctorSelect = form.querySelector('select[name="doctor"]');
   const preferredDateInput = form.querySelector('input[name="preferred_date"]');
+  const isContactForm = form.matches(".contact-form");
 
   setMinDate(preferredDateInput);
+
+  if (isContactForm) {
+    const queryStatus = getQueryStatus();
+
+    if (queryStatus?.status === "success") {
+      applyStatusMessage(note, queryStatus.message, "#16a34a");
+      form.reset();
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (queryStatus?.status === "error") {
+      applyStatusMessage(note, queryStatus.message, "#e53935");
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
 
   if (departmentSelect && doctorSelect) {
     setSelectOptions(
@@ -128,17 +163,11 @@ forms.forEach((form) => {
   form.addEventListener("submit", (event) => {
     if (!form.checkValidity()) {
       event.preventDefault();
-      if (note) {
-        note.textContent = "Please complete the required fields before submitting the form.";
-        note.style.color = "#e53935";
-      }
+      applyStatusMessage(note, "Please complete the required fields before submitting the form.", "#e53935");
       form.reportValidity();
       return;
     }
 
-    if (note) {
-      note.textContent = "Your request will be reviewed by the hospital team after submission.";
-      note.style.color = "#16a34a";
-    }
+    applyStatusMessage(note, "Submitting your request. The hospital team will review it shortly.", "#16a34a");
   });
 });

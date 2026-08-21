@@ -16,6 +16,32 @@ const photoPopupTriggers = document.querySelectorAll("[data-photo-popup-trigger]
 const photoPopupClosers = photoPopup?.querySelectorAll("[data-photo-popup-close]");
 let lastPhotoTrigger = null;
 
+const mountFloatingContact = () => {
+  if (!document.body || document.querySelector("[data-floating-contact]")) {
+    return;
+  }
+
+  const floatingContact = document.createElement("div");
+  floatingContact.className = "floating-contact";
+  floatingContact.setAttribute("data-floating-contact", "");
+  floatingContact.setAttribute("aria-label", "Quick contact actions");
+
+  floatingContact.innerHTML = `
+    <a class="floating-contact__link floating-contact__link--call" href="tel:+919135351111" aria-label="Call MR Hospital">
+      <span class="floating-contact__badge">Call Us</span>
+      <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+    </a>
+    <a class="floating-contact__link floating-contact__link--whatsapp" href="https://wa.me/919135351111" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <span class="floating-contact__badge">WhatsApp</span>
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+  `;
+
+  document.body.appendChild(floatingContact);
+};
+
+mountFloatingContact();
+
 if (stickyHeader && siteHeader) {
   const toggleStickyClass = () => {
     const hasScrolled = window.scrollY > 64;

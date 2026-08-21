@@ -77,38 +77,253 @@
       </div>
     </div>
   </header>
-  <main class="inner-page" id="main-content">
-    <section class="coming-soon-page">
-      <div class="container coming-soon-shell reveal">
-        <div class="coming-soon-copy">
-          <p class="eyebrow">Contact Page</p>
-          <h1>Contact Support <span>Coming Soon</span></h1>
-          <p>We are preparing a dedicated contact page with direct enquiry options, appointment guidance, hospital location details, and a more complete patient support experience.</p>
-          <div class="coming-soon-meta">
-            <span class="coming-soon-pill"><i class="fa-solid fa-location-dot"></i>Location details</span>
-            <span class="coming-soon-pill"><i class="fa-solid fa-phone"></i>Direct support routes</span>
-            <span class="coming-soon-pill"><i class="fa-regular fa-envelope"></i>Enquiry assistance</span>
-          </div>
-          <div class="coming-soon-actions">
-            <a class="btn btn-primary" href="index.html">Back to Home</a>
-            <a class="btn btn-outline" href="tel:+919135351111">Call Hospital</a>
+  <main class="inner-page contact-page" id="main-content">
+    <section class="contact-hero">
+      <div class="contact-hero__shell reveal">
+        <div class="contact-hero__visual">
+          <div class="contact-hero__image-wrap">
+            <img src="assets/images/hospital/about-showcase-building.png" alt="MR Hospital building with ambulance in front" width="1536" height="1024">
           </div>
         </div>
-        <aside class="coming-soon-card reveal">
-          <div class="coming-soon-card__top">
-            <span class="coming-soon-card__badge"><i class="fa-solid fa-headset"></i>Support Upgrade</span>
-            <div class="coming-soon-card__icon"><i class="fa-solid fa-phone-volume"></i></div>
-          </div>
-          <div class="coming-soon-card__bottom">
-            <h2 class="coming-soon-card__title">Patient Contact Hub</h2>
-            <p class="coming-soon-card__text">This page will soon make it easier for patients to reach the right hospital desk without delay.</p>
-            <div class="coming-soon-card__list">
-              <div class="coming-soon-card__item"><i class="fa-solid fa-map-location-dot"></i><div><strong>Location Guidance</strong><span>Easy access to visit and directions</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-user-nurse"></i><div><strong>Support Routing</strong><span>Faster path for patients and families</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-truck-medical"></i><div><strong>Emergency Access</strong><span>Quick contact for urgent assistance</span></div></div>
+
+        <div class="contact-hero__content">
+          <div class="contact-hero__content-inner">
+            <h1>Contact <span class="text-primary">Us</span></h1>
+
+            <div class="contact-hero__pulse" aria-hidden="true">
+              <span></span>
+              <i class="fa-solid fa-wave-square"></i>
+              <span></span>
+            </div>
+
+            <p class="contact-hero__lead">We are here to help you. Reach out to us for appointments, queries, feedback or any assistance. Our team will get back to you as soon as possible.</p>
+
+            <div class="contact-hero__features" aria-label="Contact page highlights">
+              <article class="contact-hero__feature">
+                <div class="contact-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-headset"></i></div>
+                <div>
+                  <h2>24x7 Support</h2>
+                </div>
+              </article>
+              <article class="contact-hero__feature">
+                <div class="contact-hero__feature-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></div>
+                <div>
+                  <h2>Quick Response</h2>
+                </div>
+              </article>
+              <article class="contact-hero__feature">
+                <div class="contact-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <div>
+                  <h2>Patient First Approach</h2>
+                </div>
+              </article>
+              <article class="contact-hero__feature">
+                <div class="contact-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+                <div>
+                  <h2>Safe &amp; Secure Environment</h2>
+                </div>
+              </article>
             </div>
           </div>
-        </aside>
+        </div>
+
+        <div class="contact-hero__info-band">
+          <article class="contact-info-card">
+            <div class="contact-info-card__icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h3>Call Us</h3>
+              <a href="tel:+919135351111">+91 9135351111</a>
+              <p>Available 24x7</p>
+            </div>
+          </article>
+          <article class="contact-info-card">
+            <div class="contact-info-card__icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></div>
+            <div>
+              <h3>Email Us</h3>
+              <a href="mailto:mrhospital18@gmail.com">mrhospital18@gmail.com</a>
+              <p>We reply within 24 hours</p>
+            </div>
+          </article>
+          <article class="contact-info-card">
+            <div class="contact-info-card__icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h3>Visit Us</h3>
+              <p>Mazar Gali, Bailey Road,<br>Patna - 800014</p>
+            </div>
+          </article>
+          <article class="contact-info-card">
+            <div class="contact-info-card__icon" aria-hidden="true"><i class="fa-solid fa-truck-medical"></i></div>
+            <div>
+              <h3>Ambulance</h3>
+              <a href="tel:+919135351111">+91 9135351111</a>
+              <p>Available 24x7</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-connect">
+      <div class="container">
+        <div class="contact-connect__shell reveal">
+          <div class="contact-connect__form-panel">
+            <div class="contact-connect__head">
+              <h2>Send Us a Message</h2>
+              <span aria-hidden="true"></span>
+            </div>
+            <p>Fill out the form below and our team will get back to you.</p>
+
+            <form class="contact-form" action="forms/contact.php" method="post" data-form-validate novalidate>
+              <div class="contact-form__grid">
+                <label class="contact-form__field">
+                  <span class="sr-only">Full Name</span>
+                  <input type="text" name="full_name" placeholder="Full Name *" autocomplete="name" maxlength="80" required>
+                </label>
+                <label class="contact-form__field">
+                  <span class="sr-only">Phone Number</span>
+                  <input type="tel" name="phone" placeholder="Phone Number *" autocomplete="tel" inputmode="tel" pattern="[0-9+\-\s()]{10,20}" maxlength="20" required>
+                </label>
+                <label class="contact-form__field contact-form__field--full">
+                  <span class="sr-only">Email Address</span>
+                  <input type="email" name="email" placeholder="Email Address *" autocomplete="email" maxlength="120" required>
+                </label>
+                <label class="contact-form__field contact-form__field--full">
+                  <span class="sr-only">Subject</span>
+                  <select name="subject" required>
+                    <option value="" selected disabled>Subject *</option>
+                    <option>General Inquiry</option>
+                    <option>Appointment Support</option>
+                    <option>Emergency Assistance</option>
+                    <option>Feedback</option>
+                  </select>
+                </label>
+                <label class="contact-form__field contact-form__field--full">
+                  <span class="sr-only">Your Message</span>
+                  <textarea name="message" placeholder="Your Message *" rows="6" minlength="20" maxlength="1200" required></textarea>
+                </label>
+              </div>
+
+              <p class="form-note contact-form__status" data-form-status aria-live="polite"></p>
+
+              <div class="contact-form__actions">
+                <label class="contact-form__consent">
+                  <input type="checkbox" name="privacy" required>
+                  <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a></span>
+                </label>
+
+                <button class="btn btn-primary contact-form__submit" type="submit">
+                  <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                  <span>Send Message</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="contact-connect__info-panel">
+            <div class="contact-connect__head">
+              <h2>Contact Information</h2>
+              <span aria-hidden="true"></span>
+            </div>
+
+            <div class="contact-details">
+              <article class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h3>Hospital Address</h3>
+                  <p>Pillar No. 76, Bailey Road,<br>Raja Bazar, Patna - 800014<br>Bihar, India</p>
+                </div>
+              </article>
+
+              <article class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <h3>Phone Number</h3>
+                  <a href="tel:+919135351111">+91 9135351111</a>
+                  <p>(24x7 Helpline)</p>
+                </div>
+              </article>
+
+              <article class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></div>
+                <div>
+                  <h3>Email Address</h3>
+                  <a href="mailto:mrhospital18@gmail.com">mrhospital18@gmail.com</a>
+                </div>
+              </article>
+
+              <article class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></div>
+                <div>
+                  <h3>Working Hours</h3>
+                  <p>Open 24x7<br>All days of the week</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="contact-emergency-card">
+              <div class="contact-emergency-card__icon" aria-hidden="true"><i class="fa-solid fa-truck-medical"></i></div>
+              <div>
+                <h3>Medical Emergency?</h3>
+                <p>Our emergency team is available 24x7</p>
+                <a href="tel:+919135351111">Call +91 9135351111</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-map-showcase">
+      <div class="container">
+        <div class="contact-map-showcase__shell reveal">
+          <div class="contact-map-showcase__content">
+            <h2>Find Us Easily</h2>
+            <span class="contact-map-showcase__divider" aria-hidden="true"></span>
+            <p>We are conveniently located in the heart of Patna. Get directions to reach us quickly.</p>
+            <a class="btn btn-primary contact-map-showcase__cta" href="https://www.google.com/maps/dir/?api=1&destination=MR+HOSPITAL+PATNA" target="_blank" rel="noopener noreferrer">
+              <i class="fa-regular fa-map" aria-hidden="true"></i>
+              <span>Get Directions</span>
+            </a>
+          </div>
+
+          <div class="contact-map-showcase__map-card">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna map"></iframe>
+            <div class="contact-map-showcase__marker-card" aria-hidden="true">
+              <div class="contact-map-showcase__marker-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>MR Hospital</strong>
+                <p>Pillar No. 76, Bailey Road,<br>Raja Bazar, Patna - 800014</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-support-band">
+      <div class="container">
+        <div class="contact-support-band__shell reveal">
+          <div class="contact-support-band__media">
+            <img src="assets/images/contact/contact-support-agent.png" alt="MR Hospital support executive ready to assist patients" width="1344" height="1555" loading="lazy">
+          </div>
+
+          <div class="contact-support-band__content">
+            <h2>Need Immediate Help?</h2>
+            <p>Our support team is ready to assist you 24x7</p>
+            <p>Your health and safety are our priority.</p>
+          </div>
+
+          <div class="contact-support-band__actions">
+            <a class="btn btn-secondary contact-support-band__cta contact-support-band__cta--call" href="tel:+919135351111">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span>+91 9135351111</span>
+            </a>
+            <a class="btn btn-primary contact-support-band__cta contact-support-band__cta--whatsapp" href="https://wa.me/919135351111" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -133,5 +348,6 @@
     <div class="footer-bottom"><div class="container footer-bottom__inner"><p>&copy; 2026 MR Hospital. All Rights Reserved.</p><div class="footer-bottom__links"><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html">Terms &amp; Conditions</a></div></div></div>
   </footer>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>
