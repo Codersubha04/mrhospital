@@ -415,6 +415,9 @@ const appointmentDoctorOptions = {
   "Nephrology": [
     "Dr. Jamsed Anwer",
   ],
+  "Kidney Transplant": [],
+  "Aesthetic Sciences": [],
+  "Minimal Access Surgery": [],
   "Obstetrics & Gynaecology": [
     "Dr. Sonali Gupta",
     "Dr. Rekha Kumari",
@@ -430,6 +433,8 @@ const appointmentDoctorOptions = {
     "Dr. Pramod Kumar",
     "Dr. Neeraj Kumar",
   ],
+  "Endocrinology": [],
+  "Rheumatology": [],
   "General Surgery": [
     "Dr. Manish Kumar",
   ],
@@ -465,7 +470,67 @@ const appointmentDoctorOptions = {
   ],
 };
 
-document.querySelectorAll(".appointment-banner__form").forEach((form) => {
+const normalizeDoctorName = (value = "") =>
+  value
+    .toLowerCase()
+    .replace(/&amp;/g, "&")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const appointmentDoctorDirectory = Object.entries(appointmentDoctorOptions).reduce((directory, [department, doctors]) => {
+  doctors.forEach((doctor) => {
+    directory.set(normalizeDoctorName(doctor), { doctor, department });
+  });
+
+  return directory;
+}, new Map());
+
+document.querySelectorAll(".doctor-action[href='appointment.html'], .doctor-search-card__book[href='appointment.html']").forEach((link) => {
+  const doctorCard = link.closest(".doctor-card");
+  const doctorName = doctorCard?.querySelector("h3")?.textContent?.trim();
+
+  if (!doctorName) {
+    return;
+  }
+
+  const appointmentUrl = new URL(link.getAttribute("href"), window.location.href);
+  appointmentUrl.searchParams.set("doctor", doctorName);
+  link.setAttribute("href", `${appointmentUrl.pathname}${appointmentUrl.search}`);
+});
+
+document.querySelectorAll(".department-showcase-card a").forEach((link) => {
+  const departmentCard = link.closest(".department-showcase-card");
+  const departmentName = departmentCard?.querySelector("h3")?.textContent?.trim();
+
+  if (!departmentName) {
+    return;
+  }
+
+  const appointmentUrl = new URL("appointment.html", window.location.href);
+  appointmentUrl.searchParams.set("department", departmentName);
+  link.setAttribute("href", `${appointmentUrl.pathname}${appointmentUrl.search}`);
+});
+
+const appointmentForms = document.querySelectorAll(
+  '.appointment-banner__form, [data-appointment-form]'
+);
+
+const appointmentQueryParams = new URLSearchParams(window.location.search);
+const requestedDoctorName = appointmentQueryParams.get("doctor");
+const requestedDepartmentName = appointmentQueryParams.get("department");
+const matchedRequestedDoctor = requestedDoctorName
+  ? appointmentDoctorDirectory.get(normalizeDoctorName(requestedDoctorName))
+  : null;
+const requestedAppointmentPrefill = {
+  patientName: appointmentQueryParams.get("name") || "",
+  patientPhone: appointmentQueryParams.get("phone") || "",
+  patientEmail: appointmentQueryParams.get("email") || "",
+  appointmentDate: appointmentQueryParams.get("date") || "",
+  department: matchedRequestedDoctor?.department || requestedDepartmentName || "",
+  doctor: matchedRequestedDoctor?.doctor || requestedDoctorName || "",
+};
+
+appointmentForms.forEach((form) => {
   const departmentSelect = form.querySelector('select[name="department"]');
   const doctorSelect = form.querySelector('select[name="doctor"]');
 
@@ -504,10 +569,144 @@ document.querySelectorAll(".appointment-banner__form").forEach((form) => {
 
   renderDoctorOptions(departmentSelect.value);
 
+  if (requestedAppointmentPrefill.department) {
+    departmentSelect.value = requestedAppointmentPrefill.department;
+    renderDoctorOptions(requestedAppointmentPrefill.department);
+  }
+
+  if (requestedAppointmentPrefill.doctor) {
+    doctorSelect.value = requestedAppointmentPrefill.doctor;
+  }
+
   departmentSelect.addEventListener("change", () => {
     renderDoctorOptions(departmentSelect.value);
     doctorSelect.value = "";
   });
+
+  if (form.classList.contains("appointment-banner__form")) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const redirectUrl = new URL("appointment.html", window.location.href);
+      const name = String(formData.get("full_name") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const department = String(formData.get("department") || "").trim();
+      const doctor = String(formData.get("doctor") || "").trim();
+      const date = String(formData.get("preferred_date") || "").trim();
+
+      if (name) {
+        redirectUrl.searchParams.set("name", name);
+      }
+
+      if (phone) {
+        redirectUrl.searchParams.set("phone", phone);
+      }
+
+      if (department) {
+        redirectUrl.searchParams.set("department", department);
+      }
+
+      if (doctor) {
+        redirectUrl.searchParams.set("doctor", doctor);
+      }
+
+      if (date) {
+        redirectUrl.searchParams.set("date", date);
+      }
+
+      window.location.href = `${redirectUrl.pathname}${redirectUrl.search}`;
+    });
+  }
+});
+
+const appointmentTabButtons = document.querySelectorAll("[data-appointment-tab]");
+const appointmentTabPanels = document.querySelectorAll("[data-appointment-panel]");
+
+if (appointmentTabButtons.length && appointmentTabPanels.length) {
+  const setActiveAppointmentTab = (targetTab) => {
+    appointmentTabButtons.forEach((button) => {
+      const isActive = button.dataset.appointmentTab === targetTab;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+      button.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
+
+    appointmentTabPanels.forEach((panel) => {
+      const isActive = panel.dataset.appointmentPanel === targetTab;
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+    });
+  };
+
+  appointmentTabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveAppointmentTab(button.dataset.appointmentTab);
+    });
+  });
+
+  const defaultActiveTab =
+    (requestedAppointmentPrefill.patientName ||
+      requestedAppointmentPrefill.patientPhone ||
+      requestedAppointmentPrefill.patientEmail ||
+      requestedAppointmentPrefill.appointmentDate ||
+      requestedAppointmentPrefill.department ||
+      requestedAppointmentPrefill.doctor)
+      ? "new-patient"
+      : Array.from(appointmentTabButtons).find((button) => button.classList.contains("is-active"))
+          ?.dataset.appointmentTab || appointmentTabButtons[0].dataset.appointmentTab;
+
+  setActiveAppointmentTab(defaultActiveTab);
+}
+
+const appointmentPrefillForms = document.querySelectorAll("[data-appointment-form]");
+
+appointmentPrefillForms.forEach((form) => {
+  if (!requestedAppointmentPrefill.patientName &&
+      !requestedAppointmentPrefill.patientPhone &&
+      !requestedAppointmentPrefill.patientEmail &&
+      !requestedAppointmentPrefill.appointmentDate &&
+      !requestedAppointmentPrefill.department &&
+      !requestedAppointmentPrefill.doctor) {
+    return;
+  }
+
+  const patientType = form.querySelector('input[name="patient_type"]')?.value || "";
+
+  if (patientType !== "new") {
+    return;
+  }
+
+  const patientNameField = form.querySelector('input[name="patient_name"]');
+  const patientPhoneField = form.querySelector('input[name="patient_phone"]');
+  const patientEmailField = form.querySelector('input[name="patient_email"]');
+  const appointmentDateField = form.querySelector('input[name="appointment_date"]');
+  const departmentField = form.querySelector('select[name="department"]');
+  const doctorField = form.querySelector('select[name="doctor"]');
+
+  if (patientNameField && requestedAppointmentPrefill.patientName) {
+    patientNameField.value = requestedAppointmentPrefill.patientName;
+  }
+
+  if (patientPhoneField && requestedAppointmentPrefill.patientPhone) {
+    patientPhoneField.value = requestedAppointmentPrefill.patientPhone;
+  }
+
+  if (patientEmailField && requestedAppointmentPrefill.patientEmail) {
+    patientEmailField.value = requestedAppointmentPrefill.patientEmail;
+  }
+
+  if (appointmentDateField && requestedAppointmentPrefill.appointmentDate) {
+    appointmentDateField.value = requestedAppointmentPrefill.appointmentDate;
+  }
+
+  if (departmentField && requestedAppointmentPrefill.department) {
+    departmentField.value = requestedAppointmentPrefill.department;
+  }
+
+  if (doctorField && requestedAppointmentPrefill.doctor) {
+    doctorField.value = requestedAppointmentPrefill.doctor;
+  }
 });
 
 const doctorFinderForm = document.querySelector("[data-doctor-finder-form]");
@@ -778,4 +977,40 @@ if (doctorFinderForm && doctorFinderResults) {
     visibleDoctorCount = 10;
     renderDoctors(doctorFinderData);
   });
+}
+
+const galleryTabs = document.querySelector("[data-gallery-tabs]");
+const galleryFilterButtons = document.querySelectorAll("[data-gallery-filter]");
+const galleryCards = document.querySelectorAll("[data-gallery-card]");
+
+if (galleryTabs && galleryFilterButtons.length && galleryCards.length) {
+  const setGalleryFilter = (filterValue) => {
+    galleryFilterButtons.forEach((button) => {
+      const isActive = button.dataset.galleryFilter === filterValue;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    galleryCards.forEach((card) => {
+      if (filterValue === "all") {
+        card.hidden = false;
+        return;
+      }
+
+      const categories = (card.dataset.category || "").split(" ").filter(Boolean);
+      card.hidden = !categories.includes(filterValue);
+    });
+  };
+
+  galleryTabs.addEventListener("click", (event) => {
+    const selectedButton = event.target.closest("[data-gallery-filter]");
+
+    if (!selectedButton) {
+      return;
+    }
+
+    setGalleryFilter(selectedButton.dataset.galleryFilter || "all");
+  });
+
+  setGalleryFilter("all");
 }
