@@ -2665,7 +2665,7 @@ p {
 
 .doctors-highlights__band {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   overflow: hidden;
   border-radius: 16px;
   background: linear-gradient(90deg, #223d7a 0%, #2c4d99 42%, #169447 100%);
@@ -6752,7 +6752,7 @@ p {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   margin: 0 58px -0.55rem;
   padding: 0.68rem 0.95rem;
