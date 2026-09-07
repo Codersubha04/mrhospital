@@ -2420,6 +2420,9 @@ p {
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.departments-preview__mobile-cta { display: none; }
+.services-preview__mobile-cta { display: none; }
+
 .doctors-preview__cta:hover,
 .doctors-preview__cta:focus-visible {
   transform: translateY(-2px);
@@ -2530,6 +2533,9 @@ p {
 }
 
 .doctors-preview .doctor-card--specialist {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.998), rgba(248, 251, 255, 0.994));
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
@@ -2544,6 +2550,7 @@ p {
 }
 
 .doctors-preview .doctor-card__media {
+  flex-shrink: 0;
   padding: 1rem 1rem 0;
 }
 
@@ -2553,7 +2560,10 @@ p {
 }
 
 .doctors-preview .doctor-card--specialist .doctor-card__body {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: stretch;
   padding: 0.9rem 0.95rem 1rem;
 }
 
@@ -2567,11 +2577,21 @@ p {
   color: #516784;
 }
 
+.doctors-preview .doctor-meta--qualifications {
+  margin: 0.4rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
 .doctors-preview .doctor-card__actions {
   grid-column: auto;
   grid-row: auto;
   display: block;
-  margin-top: 0.7rem;
+  align-self: stretch;
+  margin-top: auto;
+  padding-top: 0.7rem;
 }
 
 .doctors-preview .doctor-card__actions .doctor-action:last-child {
@@ -3402,7 +3422,9 @@ p {
 
 .appointment-banner__form {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr 1fr 0.9fr auto;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr) max-content;
   gap: 0.6rem;
   padding: 0.56rem 0.66rem 0.56rem;
   border-radius: 12px;
@@ -3412,6 +3434,8 @@ p {
 
 .appointment-banner__field {
   display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.3rem;
 }
 
@@ -3423,6 +3447,10 @@ p {
 
 .appointment-banner__field input,
 .appointment-banner__field select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
   min-height: 40px;
   padding: 0.6rem 0.74rem;
   border: 1px solid rgba(211, 222, 236, 0.95);
@@ -3441,6 +3469,7 @@ p {
 }
 
 .appointment-banner__submit {
+  min-width: 0;
   align-self: end;
   min-height: 40px;
   padding: 0.62rem 0.98rem;
@@ -4823,7 +4852,7 @@ p {
 
 .doctor-finder__filters {
   display: grid;
-  grid-template-columns: minmax(240px, 1.3fr) repeat(3, minmax(180px, 1fr)) auto;
+  grid-template-columns: minmax(240px, 1.3fr) repeat(2, minmax(180px, 1fr)) auto;
   gap: 1rem;
   padding: 1.15rem;
   border: 1px solid rgba(224, 233, 244, 0.95);
@@ -7074,15 +7103,64 @@ p {
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
 }
 
+/* Keep Rafique's portrait centred on him within the existing director frame. */
+#director-rafique-alam .director-feature__photo-wrap img {
+  object-position: center 34%;
+  transform: none;
+}
+
 .director-feature__body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 315px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   padding: 1.15rem 1.45rem 1rem 1.1rem;
 }
 
 .director-feature__copy {
   padding-right: 1.15rem;
+}
+
+.director-brand-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.15rem;
+  border: 1px solid #dce7f1;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #edf3fc, #f2f9f4);
+  text-align: center;
+  align-self: center;
+}
+
+.director-brand-panel img {
+  width: 185px;
+  max-width: 100%;
+  height: auto;
+}
+
+.director-brand-panel__divider {
+  width: 46px;
+  height: 2px;
+  background: linear-gradient(90deg, #2c4d99, #169447);
+}
+
+.director-brand-panel strong {
+  color: #2c4d99;
+  font-size: 0.9rem;
+}
+
+.director-brand-panel > span:last-child {
+  color: #52627f;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 1200px) {
+  .about-directors .director-feature__body {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 1.25rem;
+  }
 }
 
 .director-feature__copy h3 {
@@ -7106,14 +7184,11 @@ p {
 
 .director-feature__copy p:last-child {
   margin: 0;
-  max-width: 36ch;
+  max-width: 65ch;
   font-size: 0.88rem;
   line-height: 1.62;
   color: #52627f;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
 }
 
 .director-feature__contact {

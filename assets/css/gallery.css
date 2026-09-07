@@ -1,0 +1,31 @@
+/* Avoid reserving a graphics layer for every gallery photo. */
+.gallery-showcase__card img {
+  will-change: auto;
+  transition: transform 0.35s ease;
+}
+
+.gallery-showcase__card:hover img,
+.gallery-showcase__card:focus-within img {
+  filter: none;
+}
+
+/* Touch scrolling should not trigger the decorative hover effects. */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .gallery-showcase__card,
+  .gallery-showcase__card img {
+    transition: none;
+  }
+
+  .gallery-showcase__card:hover,
+  .gallery-showcase__card:focus-within,
+  .gallery-showcase__card:hover img,
+  .gallery-showcase__card:focus-within img {
+    transform: none;
+  }
+
+  .gallery-showcase__card::before,
+  .gallery-showcase__card::after {
+    display: none;
+  }
+}
+

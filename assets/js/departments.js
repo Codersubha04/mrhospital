@@ -1,0 +1,27 @@
+// Departments transcribed from the supplied Departments & Facilities brochure.
+const hospitalDepartments = [
+  "General Physician",
+  "Pediatrician",
+  "Pedia & Neonatal Surgery",
+  "Cardiologist",
+  "Cardiac Surgery",
+  "Obs. & Gynecologist",
+  "Pulmonologist",
+  "General Surgery",
+  "Laparoscopic Surgery",
+  "Orthopedic Surgery",
+  "Gastroenterologist",
+  "Gastroenterology Surgery",
+  "Neurologist",
+  "Neuro Surgery",
+  "Nephrologist",
+  "Urology",
+  "ENT",
+  "Oncologist",
+  "Onco Surgery",
+  "C.T.V.S. Surgery",
+  "Plastic & Cosmetic Surgery",
+  "Maxillofacial Surgery",
+  "Physiotherapy",
+  "Dietician"
+];

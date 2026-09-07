@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/departments-hero.css">
+  <link rel="stylesheet" href="assets/css/support-assistance.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -87,89 +89,21 @@
   </header>
 
   <main class="inner-page doctors-page" id="main-content">
-    <section class="doctors-hero">
-      <div class="doctors-hero__shell reveal">
-        <div class="doctors-hero__visual">
-          <div class="doctors-hero__image-wrap">
-            <img src="assets/images/doctors/doctors-hero-specialists.png" alt="MR Hospital specialist doctors standing together in hospital lobby" width="1792" height="1024">
+    <section class="departments-hero">
+      <div class="departments-hero__shell reveal">
+        <div class="departments-hero__visual">
+          <div class="departments-hero__image-wrap">
+            <img src="assets/images/doctors/doctors-hero-specialists.webp" alt="Illustration of specialist doctors in a hospital lobby" fetchpriority="high" width="1672" height="941">
           </div>
         </div>
 
-        <div class="doctors-hero__content">
-          <div class="doctors-hero__content-inner">
-            <h1>Our Specialist <span class="doctors-hero__title-accent">Doctors</span></h1>
-
-            <div class="doctors-hero__pulse" aria-hidden="true">
-              <span></span>
-              <i class="fa-solid fa-wave-square"></i>
-              <span></span>
-            </div>
-
-            <p class="doctors-hero__lead">Experienced. Compassionate. Committed to you. Our team of highly qualified specialists provides advanced medical care with compassion and excellence.</p>
-
-            <div class="doctors-hero__features" aria-label="Doctors page highlights">
-              <article class="doctors-hero__feature">
-                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
-                <div>
-                  <h2>Expert &amp; Experienced</h2>
-                  <p>Medical Experts</p>
-                </div>
-              </article>
-              <article class="doctors-hero__feature">
-                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
-                <div>
-                  <h2>Patient First</h2>
-                  <p>Personalized Care</p>
-                </div>
-              </article>
-              <article class="doctors-hero__feature">
-                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></div>
-                <div>
-                  <h2>Advanced Treatment</h2>
-                  <p>Modern Technology</p>
-                </div>
-              </article>
-              <article class="doctors-hero__feature">
-                <div class="doctors-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
-                <div>
-                  <h2>Ethical &amp; Transparent</h2>
-                  <p>Trusted Care</p>
-                </div>
-              </article>
-            </div>
+        <div class="departments-hero__content">
+          <div class="departments-hero__content-inner">
+            <h1><span>Our Specialist</span><span class="departments-hero__title-accent">Doctors</span></h1>
+            <p class="departments-hero__lead">Find the right specialist for your care at MR Hospital. Explore our doctor directory by name, department or speciality, and view each doctor&#39;s listed qualifications. From your first consultation to ongoing treatment, our team is here to help you take the next step. Choose a doctor below and request an appointment, or contact us for guidance on the right department for your needs.</p>
+            <div class="about-hero__features" aria-label="Doctors page highlights"><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div><h3>Specialist<br>Doctors</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></div><h3>Personalised<br>Care</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div><h3>Patient<br>First</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-hands-holding-circle"></i></div><h3>Compassionate<br>Care</h3></article></div>
           </div>
         </div>
-
-        <aside class="doctors-hero__stats-card reveal" aria-label="MR Hospital doctor highlights">
-          <article class="doctors-hero__stat">
-            <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
-            <div>
-              <strong>40+</strong>
-              <span>Expert Doctors</span>
-            </div>
-          </article>
-          <article class="doctors-hero__stat">
-            <i class="fa-regular fa-hospital" aria-hidden="true"></i>
-            <div>
-              <strong>18+</strong>
-              <span>Departments</span>
-            </div>
-          </article>
-          <article class="doctors-hero__stat">
-            <i class="fa-solid fa-users-line" aria-hidden="true"></i>
-            <div>
-              <strong>25,000+</strong>
-              <span>Happy Patients</span>
-            </div>
-          </article>
-          <article class="doctors-hero__stat">
-            <i class="fa-regular fa-clock" aria-hidden="true"></i>
-            <div>
-              <strong>24x7</strong>
-              <span>Emergency Care</span>
-            </div>
-          </article>
-        </aside>
       </div>
     </section>
 
@@ -178,7 +112,7 @@
         <div class="doctor-finder__shell">
           <div class="doctor-finder__head">
             <h2>Find the Right Doctor</h2>
-            <p>Search by doctor name, choose department, specialization, or availability to find the best consultation match for your care.</p>
+            <p>Search by doctor name, choose department or specialization to find the best consultation match for your care.</p>
           </div>
 
           <form class="doctor-finder__filters" data-doctor-finder-form>
@@ -191,24 +125,14 @@
             <label class="sr-only" for="doctor-search-department">Select Department</label>
             <div class="doctor-finder__field">
               <select id="doctor-search-department" name="department">
-                <option value="">Select Department</option>
-              </select>
+                  <option value="">Select Department</option>
+                </select>
             </div>
 
             <label class="sr-only" for="doctor-search-specialization">Select Specialization</label>
             <div class="doctor-finder__field">
               <select id="doctor-search-specialization" name="specialization">
                 <option value="">Select Specialization</option>
-              </select>
-            </div>
-
-            <label class="sr-only" for="doctor-search-availability">Select Availability</label>
-            <div class="doctor-finder__field">
-              <select id="doctor-search-availability" name="availability">
-                <option value="">Select Availability</option>
-                <option value="Available Today">Available Today</option>
-                <option value="Consultation Hours">Consultation Hours</option>
-                <option value="On Call">On Call</option>
               </select>
             </div>
 
@@ -238,61 +162,34 @@
       </div>
     </section>
 
-    <section class="appointment-home section">
-      <div class="container appointment-banner">
-        <div class="appointment-banner__visual" aria-hidden="true">
-          <img class="appointment-banner__doctor-image" src="assets/images/doctors/appointment-doctor-cutout.png" alt="" width="1280" height="1280" loading="lazy">
-        </div>
-        <div class="appointment-banner__content">
-          <div class="appointment-banner__head">
-            <h2>Book Your Appointment</h2>
-            <p>We will respond you shortly</p>
+    <section class="support-assistance" aria-labelledby="support-assistance-title">
+      <div class="container">
+        <div class="support-assistance__panel">
+          <div class="support-assistance__portrait">
+            <img src="assets/images/contact/contact-support-agent.webp" alt="Patient support representative illustration" width="1344" height="1555" loading="lazy" decoding="async">
           </div>
-          <form class="appointment-banner__form" action="forms/appointment.php" method="post" novalidate data-form-validate>
-            <div class="appointment-banner__field">
-              <label for="doctors-appointment-name">Your Name</label>
-              <input id="doctors-appointment-name" name="full_name" type="text" placeholder="Enter your name" required>
+          <div class="support-assistance__copy">
+            <span class="support-assistance__badge"><span aria-hidden="true"></span> HERE FOR YOU, 24x7</span>
+            <h2 id="support-assistance-title">Need a helping hand?</h2>
+            <p>From planning your visit to finding the right care, our team is here to guide you.</p>
+            <div class="support-assistance__details">
+              <span><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Appointment guidance</span>
+              <span><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Emergency support</span>
             </div>
-            <div class="appointment-banner__field">
-              <label for="doctors-appointment-phone">Phone Number</label>
-              <input id="doctors-appointment-phone" name="phone" type="tel" placeholder="Enter your number" required pattern="[0-9+\-\s]{10,}">
-            </div>
-            <div class="appointment-banner__field">
-              <label for="doctors-appointment-department">Department</label>
-              <select id="doctors-appointment-department" name="department" required>
-                <option value="">Select Department</option>
-                <option>Neurosciences</option>
-                <option>Orthopaedics &amp; Joint Replacement</option>
-                <option>Cancer Treatment &amp; Radiotherapy</option>
-                <option>Urology</option>
-                <option>Nephrology</option>
-                <option>Obstetrics &amp; Gynaecology</option>
-                <option>Neonatology &amp; Pediatrics</option>
-                <option>Cardiology &amp; Cardiac Surgery</option>
-                <option>General Surgery</option>
-                <option>Gastroenterology</option>
-                <option>ENT</option>
-                <option>Pulmonary Medicine</option>
-                <option>Anaesthesia</option>
-                <option>Plastic &amp; Cosmetic Surgery</option>
-                <option>Pediatric Surgery</option>
-                <option>Oral &amp; Maxillofacial Surgery</option>
-                <option>Ophthalmology</option>
-              </select>
-            </div>
-            <div class="appointment-banner__field">
-              <label for="doctors-appointment-doctor">Doctor</label>
-              <select id="doctors-appointment-doctor" name="doctor">
-                <option value="">Select department first</option>
-              </select>
-            </div>
-            <div class="appointment-banner__field appointment-banner__field--date">
-              <label for="doctors-appointment-date">Preferred Date</label>
-              <input id="doctors-appointment-date" name="preferred_date" type="date" required>
-            </div>
-            <button class="btn btn-primary appointment-banner__submit" type="submit"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>Book Appointment</span></button>
-            <p class="form-note" aria-live="polite"></p>
-          </form>
+          </div>
+          <div class="support-assistance__actions">
+            <span class="support-assistance__label">LET'S CONNECT</span>
+            <a class="support-assistance__call" href="tel:+919135351111">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span><small>Call our support team</small><strong>+91 9135351111</strong></span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+            <a class="support-assistance__whatsapp" href="https://wa.me/919135351111" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>Chat on WhatsApp</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -317,7 +214,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="departments.html">Services</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="departments.html">Departments</a></li>
           <li><a href="doctors.html">Doctors</a></li>
           <li><a href="contact.html">Patients</a></li>
@@ -357,7 +254,7 @@
       <div class="footer-map">
         <h3>Locate Us</h3>
         <div class="footer-map__card" aria-label="Map preview of MR Hospital location">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna location map"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna location map"></iframe>
         </div>
         <a class="btn btn-primary footer-map__directions" href="https://www.google.com/maps/dir/?api=1&destination=MR+HOSPITAL+PATNA" target="_blank" rel="noopener noreferrer">Get Directions</a>
       </div>
@@ -373,6 +270,9 @@
     </div>
   </footer>
 
+  <script src="assets/js/departments.js" defer></script>
+  <script src="assets/js/doctors.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>

@@ -446,7 +446,7 @@
   }
 
   .gallery-page#main-content {
-    padding-top: calc(var(--topbar-height) + var(--main-header-height) + 18px);
+    padding-top: calc(var(--topbar-height) + var(--main-header-height));
   }
 
   .gallery-hero__shell {
@@ -5397,4 +5397,109 @@
     font-size: 0.74rem;
   }
 
+}
+
+/* Give homepage metric cards a more legible touch target on phones. */
+@media (max-width: 767px) {
+  .hero-metrics--inline {
+    width: min(100%, 340px);
+    gap: 1rem;
+    margin-top: 1.4rem;
+    padding-bottom: 1.35rem;
+  }
+
+  .hero-metrics--inline li {
+    min-height: 98px;
+    max-width: none;
+    padding: .9rem .7rem .8rem;
+    border-radius: 16px;
+    gap: .25rem;
+  }
+
+  .hero-metrics--inline li i { font-size: 1rem; }
+  .hero-metrics--inline li strong { font-size: 1.18rem; }
+  .hero-metrics--inline li span { font-size: .74rem; line-height: 1.25; }
+}
+
+/* Keep director names and profile actions easy to read on phone screens. */
+@media (max-width: 767px) {
+  .leader-card--director .leader-card__body {
+    gap: .32rem;
+    padding: 1.05rem .9rem 1.15rem;
+  }
+
+  .leader-card--director h3 {
+    min-height: 0;
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .leader-card--director .leader-role {
+    margin-bottom: .8rem;
+    font-size: .9rem;
+  }
+
+  .leader-profile-btn {
+    min-width: 164px;
+    min-height: 46px;
+    padding: .78rem 1.1rem;
+    border-radius: 11px;
+    font-size: .92rem;
+  }
+
+  .leader-profile-btn i { font-size: .95rem; }
+}
+
+/* Keep every doctor card uniform and balanced on phone screens. */
+@media (max-width: 767px) {
+  .doctors-preview__grid {
+    align-items: stretch;
+    grid-auto-rows: 355px;
+  }
+
+  .doctors-preview .doctor-card--specialist {
+    align-self: stretch;
+    height: 100%;
+  }
+
+  .doctors-preview .doctor-card--specialist .doctor-card__body {
+    flex: 1 1 auto;
+    padding: .8rem .8rem .85rem;
+  }
+
+  .doctors-preview .doctor-card__actions {
+    margin-top: auto;
+    padding-top: .65rem;
+  }
+}
+
+/* Mobile department preview: show six cards, then the directory action. */
+@media (max-width: 767px) {
+  .departments-preview .section-head--services .services-preview__cta {
+    display: none;
+  }
+
+  .departments-preview .department-showcase-card:nth-child(n + 7) {
+    display: none;
+  }
+
+  .departments-preview__mobile-cta {
+    display: inline-flex;
+    width: 100%;
+    min-height: 46px;
+    margin: 1.25rem auto 0;
+    justify-content: center;
+  }
+
+  .services-preview--home .section-head--services .services-preview__cta {
+    display: none;
+  }
+
+  .services-preview__mobile-cta {
+    display: inline-flex;
+    width: 100%;
+    min-height: 46px;
+    margin: 1.25rem auto 0;
+    justify-content: center;
+  }
 }

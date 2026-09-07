@@ -7,7 +7,7 @@
   <meta name="description" content="Review core services at MR Hospital Patna including emergency care, ICU, diagnostics, ambulance support, surgery support, and patient services.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="MR Hospital">
-  <meta name="theme-color" content="#0d59ca">
+  <meta name="theme-color" content="#2c4d99">
   <meta name="keywords" content="MR Hospital services, emergency care Patna, ICU Patna, diagnostics Patna, ambulance service Patna">
   <meta property="og:locale" content="en_IN">
   <meta property="og:type" content="website">
@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet" href="assets/css/departments-hero.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -86,41 +88,259 @@
     </div>
   </header>
 
-  <main class="inner-page" id="main-content">
-    <section class="coming-soon-page">
-      <div class="container coming-soon-shell reveal">
-        <div class="coming-soon-copy">
-          <p class="eyebrow">Services Page</p>
-          <h1>Medical Services <span>Coming Soon</span></h1>
-          <p>We are designing a clearer services page that will showcase emergency care, ICU support, diagnostics, ambulance response, and patient-first treatment pathways.</p>
-          <div class="coming-soon-meta">
-            <span class="coming-soon-pill"><i class="fa-solid fa-truck-medical"></i>Emergency services</span>
-            <span class="coming-soon-pill"><i class="fa-solid fa-bed-pulse"></i>Critical care info</span>
-            <span class="coming-soon-pill"><i class="fa-solid fa-flask-vial"></i>Diagnostics overview</span>
-          </div>
-          <div class="coming-soon-actions">
-            <a class="btn btn-primary" href="index.html">Back to Home</a>
-            <a class="btn btn-outline" href="appointment.html">Book Appointment</a>
+  <main class="inner-page care-page services-page" id="main-content">
+    <section class="departments-hero">
+      <div class="departments-hero__shell reveal">
+        <div class="departments-hero__visual">
+          <div class="departments-hero__image-wrap">
+            <img src="assets/images/services/service-icu-critical-care.webp" alt="Illustration of a medical team providing patient care" fetchpriority="high" width="1536" height="1024">
           </div>
         </div>
 
-        <aside class="coming-soon-card reveal">
-          <div class="coming-soon-card__top">
-            <span class="coming-soon-card__badge"><i class="fa-solid fa-sparkles"></i>Under Refinement</span>
-            <div class="coming-soon-card__icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div class="departments-hero__content">
+          <div class="departments-hero__content-inner">
+            <h1><span>Our</span><span class="departments-hero__title-accent">Services</span></h1>
+            <p class="departments-hero__lead">MR Hospital offers 24 services and facilities to support you and your family through every stage of care. From emergency support and diagnostic testing to specialised treatment and inpatient accommodation, our services cover a wide range of healthcare needs. Explore the options available and connect with our team for guidance on consultations, treatment support and a comfortable hospital stay.</p>
+            <div class="about-hero__features" aria-label="Service page highlights"><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-truck-medical"></i></div><h3>24x7<br>Support</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-flask-vial"></i></div><h3>Diagnostics<br>&amp; Testing</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div><h3>Patient<br>First</h3></article><article class="about-hero__feature"><div class="about-hero__feature-icon" aria-hidden="true"><i class="fa-solid fa-hands-holding-circle"></i></div><h3>Compassionate<br>Care</h3></article></div>
           </div>
-          <div class="coming-soon-card__bottom">
-            <h2 class="coming-soon-card__title">Faster Service Discovery</h2>
-            <p class="coming-soon-card__text">The upcoming page will make it easier for patients and families to understand what MR Hospital offers and where to begin.</p>
-            <div class="coming-soon-card__list">
-              <div class="coming-soon-card__item"><i class="fa-solid fa-shield-heart"></i><div><strong>Emergency First</strong><span>Critical support services at a glance</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-microscope"></i><div><strong>Modern Diagnostics</strong><span>Testing, imaging and support workflows</span></div></div>
-              <div class="coming-soon-card__item"><i class="fa-solid fa-circle-check"></i><div><strong>Simple Navigation</strong><span>Clear path from service to appointment</span></div></div>
-            </div>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
+    <div class="container care-content" id="explore-services">
+      <div class="care-directory"><div class="care-directory__heading"><div><p class="eyebrow">FIND THE CARE YOU NEED</p><h2>Explore Our Services</h2></div><p>Choose a category to explore our services and facilities.</p></div><nav class="care-navigation" aria-label="Explore service categories"><a href="#emergency-care"><span class="care-navigation__top"><span class="care-navigation__icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span><span class="care-navigation__number" aria-hidden="true">01</span></span><strong>Emergency &amp; Critical Care</strong><span class="care-navigation__description">Emergency, ICU &amp; ambulance</span><span class="care-navigation__bottom">Explore Services <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span></a><a href="#diagnostics"><span class="care-navigation__top"><span class="care-navigation__icon"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i></span><span class="care-navigation__number" aria-hidden="true">02</span></span><strong>Diagnostics &amp; Consultation</strong><span class="care-navigation__description">Laboratory, imaging &amp; OPD</span><span class="care-navigation__bottom">Explore Services <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span></a><a href="#treatment-support"><span class="care-navigation__top"><span class="care-navigation__icon"><i class="fa-solid fa-hand-holding-medical" aria-hidden="true"></i></span><span class="care-navigation__number" aria-hidden="true">03</span></span><strong>Treatment &amp; Specialised Care</strong><span class="care-navigation__description">Procedures &amp; clinical support</span><span class="care-navigation__bottom">Explore Services <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span></a><a href="#patient-support"><span class="care-navigation__top"><span class="care-navigation__icon"><i class="fa-solid fa-hands-holding-circle" aria-hidden="true"></i></span><span class="care-navigation__number" aria-hidden="true">04</span></span><strong>Comfort &amp; Patient Support</strong><span class="care-navigation__description">Rooms, pharmacy &amp; assistance</span><span class="care-navigation__bottom">Explore Services <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span></a></nav></div>
+      <section class="care-category" id="emergency-care" aria-labelledby="emergency-care-title">
+      <div class="care-category__head reveal">
+        <div><h2 id="emergency-care-title">Emergency &amp; critical care</h2><p>Support when every moment matters.</p></div>
+      </div>
+      <div class="care-service-grid"><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-emergency-care.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-briefcase-medical"></i></div>
+            <div class="service-card__copy"><h3>Emergency Unit</h3><p>24-hour emergency care. Call the hospital for immediate assistance.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — Emergency Unit">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-trauma.webp" alt="Illustration of trauma care" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-truck-medical"></i></div>
+            <div class="service-card__copy"><h3>Trauma</h3><p>Hospital care for injuries and trauma-related emergencies.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — Trauma">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-poisoning.webp" alt="Illustration of poisoning care" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="service-card__copy"><h3>Poisoning</h3><p>Emergency assessment and care for poisoning-related concerns.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — Poisoning">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-burn-unit.webp" alt="Illustration of burn unit care" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-fire-flame-simple"></i></div>
+            <div class="service-card__copy"><h3>Burn Unit</h3><p>A dedicated unit for the assessment and care of burns.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — Burn Unit">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-icu-critical-care.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-bed-pulse"></i></div>
+            <div class="service-card__copy"><h3>ICU / ICCU</h3><p>Intensive care and intensive coronary care for patients needing close medical attention.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — ICU / ICCU">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-ambulance.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-truck-medical"></i></div>
+            <div class="service-card__copy"><h3>Ambulance 24 hrs.</h3><p>Round-the-clock ambulance services. Call to arrange assistance.</p></div>
+          </div>
+          <div class="care-service-action"><a href="tel:+919135351111" aria-label="Call for Assistance — Ambulance 24 hrs.">Call for Assistance<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article></div>
+    </section><section class="care-category" id="diagnostics" aria-labelledby="diagnostics-title">
+      <div class="care-category__head reveal">
+        <div><h2 id="diagnostics-title">Diagnostics &amp; consultation</h2><p>A clearer starting point for your care.</p></div>
+      </div>
+      <div class="care-service-grid"><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-laboratory.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-flask-vial"></i></div>
+            <div class="service-card__copy"><h3>Laboratory for All Types of Tests</h3><p>Laboratory testing services. Our team can confirm specific tests and preparation requirements.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Laboratory for All Types of Tests">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-radiology.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-x-ray"></i></div>
+            <div class="service-card__copy"><h3>X-ray &amp; Ultrasound</h3><p>Imaging services to support clinical assessment and treatment planning.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — X-ray &amp; Ultrasound">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-eeg.webp" alt="EEG service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
+            <div class="service-card__copy"><h3>EEG</h3><p>Electroencephalogram testing to record the brain&#x27;s electrical activity.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — EEG">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-ecg.webp" alt="ECG service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="service-card__copy"><h3>ECG</h3><p>Electrocardiogram testing to record the heart&#x27;s electrical activity.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — ECG">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-ercp.webp" alt="ERCP service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-notes-medical"></i></div>
+            <div class="service-card__copy"><h3>ERCP</h3><p>ERCP procedure services. Contact our team for consultation and scheduling.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — ERCP">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-opd.webp" alt="OPD service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+            <div class="service-card__copy"><h3>OPD</h3><p>Outpatient consultations. Find a specialist and request an appointment.</p></div>
+          </div>
+          <div class="care-service-action"><a href="appointment.html" aria-label="Book Appointment — OPD">Book Appointment<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article></div>
+    </section><section class="care-category" id="treatment-support" aria-labelledby="treatment-support-title">
+      <div class="care-category__head reveal">
+        <div><h2 id="treatment-support-title">Treatment &amp; specialised care</h2><p>Care and clinical support through your treatment.</p></div>
+      </div>
+      <div class="care-service-grid"><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-dialysis.webp" alt="Dialysis service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-droplet"></i></div>
+            <div class="service-card__copy"><h3>Dialysis</h3><p>Dialysis services for patients requiring renal care support.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Dialysis">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-chemotherapy.webp" alt="Chemotherapy service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-ribbon"></i></div>
+            <div class="service-card__copy"><h3>Chemotherapy</h3><p>Chemotherapy services as part of a clinician-guided cancer care plan.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Chemotherapy">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-vaccinations.webp" alt="Vaccinations service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-syringe"></i></div>
+            <div class="service-card__copy"><h3>Vaccinations</h3><p>Vaccination services. Contact our team to confirm availability and scheduling.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Vaccinations">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-operation-theatre.webp" alt="" width="1536" height="1024" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-kit-medical"></i></div>
+            <div class="service-card__copy"><h3>Modular OT</h3><p>Modular operation theatre facilities for surgical procedures.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Modular OT">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-hdu.webp" alt="HDU service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-bed-pulse"></i></div>
+            <div class="service-card__copy"><h3>HDU</h3><p>High dependency unit care for patients who need additional observation and support.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — HDU">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-nicu.webp" alt="NICU service illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-baby"></i></div>
+            <div class="service-card__copy"><h3>NICU</h3><p>Neonatal intensive care facilities for newborns requiring specialised attention.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — NICU">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article></div>
+    </section><section class="care-category" id="patient-support" aria-labelledby="patient-support-title">
+      <div class="care-category__head reveal">
+        <div><h2 id="patient-support-title">Comfort &amp; patient support</h2><p>Practical support for patients and families.</p></div>
+      </div>
+      <div class="care-service-grid"><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-deluxe-room.webp" alt="Deluxe Room illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-bed"></i></div>
+            <div class="service-card__copy"><h3>Deluxe Room</h3><p>Deluxe inpatient accommodation. Ask our team about room availability.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Deluxe Room">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-ac-non-ac-room.webp" alt="AC / Non AC Room illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-bed"></i></div>
+            <div class="service-card__copy"><h3>AC / Non AC Room</h3><p>Air-conditioned and non-air-conditioned accommodation options for your stay.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — AC / Non AC Room">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-general-ward.webp" alt="General Ward illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-hospital"></i></div>
+            <div class="service-card__copy"><h3>General Ward</h3><p>General ward accommodation for patients receiving inpatient care.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — General Ward">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-pharmacy.webp" alt="" width="1672" height="941" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-pills"></i></div>
+            <div class="service-card__copy"><h3>24 × 7 Pharmacy</h3><p>Round-the-clock pharmacy services for patients and their care needs.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — 24 × 7 Pharmacy">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-tpa-insurance.webp" alt="Cashless Treatment with Various TPA / Insurance illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-file-shield"></i></div>
+            <div class="service-card__copy"><h3>Cashless Treatment with Various TPA / Insurance</h3><p>Our team can help check participating insurers, eligibility and the approval process.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Cashless Treatment with Various TPA / Insurance">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article><article class="service-card service-card--medical reveal" data-service>
+          <div class="service-card__media"><img src="assets/images/services/service-canteen.webp" alt="Canteen illustration" width="1855" height="848" loading="lazy"></div>
+          <div class="service-card__content">
+            <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-utensils"></i></div>
+            <div class="service-card__copy"><h3>Canteen</h3><p>On-site canteen facilities for patients&#x27; attendants and visitors.</p></div>
+          </div>
+          <div class="care-service-action"><a href="contact.html" aria-label="Enquire Now — Canteen">Enquire Now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </article></div>
+    </section>
+
+    </div>
+    <section class="appointment-home section">
+      <div class="container appointment-banner reveal">
+        <div class="appointment-banner__visual" aria-hidden="true">
+          <img class="appointment-banner__doctor-image" src="assets/images/doctors/appointment-doctor-cutout.webp" alt="" width="1280" height="1280" loading="lazy">
+        </div>
+        <div class="appointment-banner__content">
+          <div class="appointment-banner__head">
+            <h2>Book Your Appointment</h2>
+            <p>We will respond to you shortly</p>
+          </div>
+          <form class="appointment-banner__form" action="forms/appointment.php" method="post" data-form-validate>
+            <div class="appointment-banner__field">
+              <label for="services-name">Your Name</label>
+              <input id="services-name" name="full_name" type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="appointment-banner__field">
+              <label for="services-phone">Phone Number</label>
+              <input id="services-phone" name="phone" type="tel" placeholder="Enter your number" required pattern="[0-9+\-\s]{10,}">
+            </div>
+            <div class="appointment-banner__field">
+              <label for="services-department">Department</label>
+              <select id="services-department" name="department" required>
+                  <option value="">Select Department</option>
+                </select>
+            </div>
+            <div class="appointment-banner__field">
+              <label for="services-doctor">Doctor</label>
+              <select id="services-doctor" name="doctor">
+                  <option value="">Select Department First</option>
+                </select>
+            </div>
+            <div class="appointment-banner__field appointment-banner__field--date">
+              <label for="services-date">Preferred Date</label>
+              <input id="services-date" name="preferred_date" type="date" required>
+            </div>
+            <button class="btn btn-primary appointment-banner__submit" type="submit"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>Book Appointment</span></button>
+            <p class="form-note" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -142,7 +362,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="departments.html">Services</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="departments.html">Departments</a></li>
           <li><a href="doctors.html">Doctors</a></li>
           <li><a href="contact.html">Patients</a></li>
@@ -182,7 +402,7 @@
       <div class="footer-map">
         <h3>Locate Us</h3>
         <div class="footer-map__card" aria-label="Map preview of MR Hospital location">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna location map"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.996483004668!2d85.08810217485073!3d25.605033115062184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b881ea3aad%3A0x2b7ec10907c1d8ed!2sMR%20HOSPITAL%20PATNA!5e0!3m2!1sen!2sin!4v1785693603904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="MR Hospital Patna location map"></iframe>
         </div>
         <a class="btn btn-primary footer-map__directions" href="https://www.google.com/maps/dir/?api=1&destination=MR+HOSPITAL+PATNA" target="_blank" rel="noopener noreferrer">Get Directions</a>
       </div>
@@ -198,6 +418,9 @@
     </div>
   </footer>
 
+  <script src="assets/js/departments.js" defer></script>
+  <script src="assets/js/doctors.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>

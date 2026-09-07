@@ -1,0 +1,35 @@
+/* About-style copy layout; the existing hero visual and overlay remain shared. */
+:is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero h1 {
+  font-size: clamp(2.4rem, 3.15vw, 2.82rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+:is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero h1 span { display: block; }
+:is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero__lead {
+  max-width: 49ch;
+  margin: 1.35rem 0 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+:is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__features { margin-top: 1.85rem; }
+@media (min-width: 768px) {
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero__content {
+    align-items: flex-start;
+    padding-top: 3.4rem;
+    padding-left: 5.3rem;
+    padding-right: 1rem;
+  }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero__content-inner { max-width: 585px; }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__feature { padding-inline: 1rem; }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero__content { padding-left: 2rem; padding-top: 2.5rem; }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 0; }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__feature:nth-child(2) { border-right: 0; }
+}
+@media (max-width: 767px) {
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .about-hero__feature { padding: 0.75rem; border-right: 0; }
+  :is(.departments-page, .services-page, .doctors-page, .gallery-page, .career-page, .contact-page) .departments-hero h1 { font-size: clamp(2rem, 8vw, 2.82rem); }
+}

@@ -130,11 +130,13 @@ if (doctorsCarousel) {
   const nextButton = doctorsShell?.querySelector(".doctors-nav--next");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  if (doctorsTrack && !reducedMotionQuery.matches) {
+  if (doctorsTrack && doctorsTrack.children.length) {
     const originalCards = Array.from(doctorsTrack.children);
     let animationFrameId = null;
     let lastTimestamp = 0;
-    let isPaused = false;
+    let isHovered = false;
+    let isFocused = false;
+    let scrollPosition = doctorsCarousel.scrollLeft;
     let loopWidth = 0;
     const speed = 36;
 
@@ -144,7 +146,7 @@ if (doctorsCarousel) {
 
     const measureLoopWidth = () => {
       if (doctorsTrack.children.length > originalCards.length) {
-        loopWidth = doctorsTrack.children[originalCards.length].offsetLeft;
+        loopWidth = doctorsTrack.children[originalCards.length].offsetLeft - originalCards[0].offsetLeft;
       }
     };
 
@@ -153,15 +155,13 @@ if (doctorsCarousel) {
         lastTimestamp = timestamp;
       }
 
-      const delta = (timestamp - lastTimestamp) / 1000;
+      const delta = Math.min((timestamp - lastTimestamp) / 1000, 0.05);
       lastTimestamp = timestamp;
 
-      if (!isPaused && loopWidth > 0) {
-        doctorsCarousel.scrollLeft += delta * speed;
-
-        if (doctorsCarousel.scrollLeft >= loopWidth) {
-          doctorsCarousel.scrollLeft -= loopWidth;
-        }
+      if (!isHovered && !isFocused && !reducedMotionQuery.matches && !document.hidden && loopWidth > 0) {
+        // Preserve fractional pixels instead of reading a rounded scrollLeft each frame.
+        scrollPosition = (scrollPosition + delta * speed) % loopWidth;
+        doctorsCarousel.scrollLeft = scrollPosition;
       }
 
       animationFrameId = window.requestAnimationFrame(step);
@@ -177,33 +177,31 @@ if (doctorsCarousel) {
       const gap = parseFloat(window.getComputedStyle(doctorsTrack).gap || "0");
       const offset = cardWidth + gap;
 
-      doctorsCarousel.scrollTo({
-        left: doctorsCarousel.scrollLeft + (direction * offset),
-        behavior: "smooth",
-      });
-    };
-
-    const pause = () => {
-      isPaused = true;
-    };
-
-    const resume = () => {
-      isPaused = false;
+      scrollPosition = ((scrollPosition + direction * offset) % loopWidth + loopWidth) % loopWidth;
+      doctorsCarousel.scrollLeft = scrollPosition;
       lastTimestamp = 0;
     };
 
     measureLoopWidth();
     animationFrameId = window.requestAnimationFrame(step);
 
-    doctorsCarousel.addEventListener("mouseenter", pause);
-    doctorsCarousel.addEventListener("mouseleave", resume);
-    doctorsCarousel.addEventListener("focusin", pause);
-    doctorsCarousel.addEventListener("focusout", resume);
+    doctorsCarousel.addEventListener("mouseenter", () => { isHovered = true; });
+    doctorsCarousel.addEventListener("mouseleave", () => { isHovered = false; lastTimestamp = 0; });
+    doctorsCarousel.addEventListener("focusin", () => { isFocused = true; });
+    doctorsCarousel.addEventListener("focusout", (event) => {
+      isFocused = Boolean(event.relatedTarget && doctorsCarousel.contains(event.relatedTarget));
+      lastTimestamp = 0;
+    });
 
     prevButton?.addEventListener("click", () => nudgeCarousel(-1));
     nextButton?.addEventListener("click", () => nudgeCarousel(1));
 
     window.addEventListener("resize", measureLoopWidth);
+    window.addEventListener("load", measureLoopWidth);
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(measureLoopWidth);
+      resizeObserver.observe(doctorsTrack);
+    }
 
     window.addEventListener("beforeunload", () => {
       if (animationFrameId) {
@@ -390,85 +388,16 @@ if (photoPopup && photoPopupImage && photoPopupTriggers.length > 0) {
   });
 }
 
-const appointmentDoctorOptions = {
-  "Neurosciences": [
-    "Dr. S K Singh",
-    "Dr. B. Kumar Singh",
-    "Dr. A K Jha",
-    "Dr. Hemant Kumar",
-  ],
-  "Orthopaedics & Joint Replacement": [
-    "Dr. Prabhat Kumar",
-    "Dr. Tazadar Hamesh",
-    "Dr. Naveen Upadhyay",
-  ],
-  "Cancer Treatment & Radiotherapy": [
-    "Dr. Hari Har Nath",
-    "Dr. S.P. Singh",
-    "Dr. Shekhar Keshri",
-    "Dr. S. Pawar",
-  ],
-  "Urology": [
-    "Dr. Md. Faizul Haque",
-    "Dr. Rohit Kumar",
-  ],
-  "Nephrology": [
-    "Dr. Jamsed Anwer",
-  ],
-  "Kidney Transplant": [],
-  "Aesthetic Sciences": [],
-  "Minimal Access Surgery": [],
-  "Obstetrics & Gynaecology": [
-    "Dr. Sonali Gupta",
-    "Dr. Rekha Kumari",
-  ],
-  "Neonatology & Pediatrics": [
-    "Dr. R Ahmar",
-    "Dr. Ansuman",
-  ],
-  "Cardiology & Cardiac Surgery": [
-    "Dr. S.N. Singh",
-    "Dr. Abhinash Kumar",
-    "Dr. Ram Sagar Ray",
-    "Dr. Pramod Kumar",
-    "Dr. Neeraj Kumar",
-  ],
-  "Endocrinology": [],
-  "Rheumatology": [],
-  "General Surgery": [
-    "Dr. Manish Kumar",
-  ],
-  "Gastroenterology": [
-    "Dr. T.N Raj",
-    "Dr. Amitesh Kumar",
-    "Dr. Md. Shahid Siddiqui",
-  ],
-  "ENT": [
-    "Dr. S.S Prasad",
-    "Dr. Deepak Raman",
-  ],
-  "Pulmonary Medicine": [
-    "Dr. A. Ejaji",
-    "Dr. Kumar Abhishek",
-  ],
-  "Anaesthesia": [
-    "Dr. Satish Kumar",
-    "Dr. Anil Kumar",
-  ],
-  "Plastic & Cosmetic Surgery": [
-    "Dr. Sanjay Kumar",
-  ],
-  "Pediatric Surgery": [
-    "Dr. Om Purve",
-  ],
-  "Oral & Maxillofacial Surgery": [
-    "Dr. Mandeep",
-    "Dr. Wasim",
-  ],
-  "Ophthalmology": [
-    "Dr. Binod Kumar",
-  ],
-};
+const appointmentDoctorOptions = hospitalDoctors.reduce((directory, doctor) => {
+  (directory[doctor.department] ||= []).push(doctor.name);
+  return directory;
+}, Object.fromEntries(hospitalDepartments.map((department) => [department, []])));
+
+// The doctor brochure explicitly lists these surgical specialties.
+appointmentDoctorOptions["Laparoscopic Surgery"] = hospitalDoctors
+  .filter((doctor) => doctor.specialization === "General & Laparoscopic Surgery").map((doctor) => doctor.name);
+appointmentDoctorOptions["Cardiac Surgery"] = hospitalDoctors
+  .filter((doctor) => doctor.specialization === "C.T.V.S Surgery").map((doctor) => doctor.name);
 
 const normalizeDoctorName = (value = "") =>
   value
@@ -479,7 +408,8 @@ const normalizeDoctorName = (value = "") =>
 
 const appointmentDoctorDirectory = Object.entries(appointmentDoctorOptions).reduce((directory, [department, doctors]) => {
   doctors.forEach((doctor) => {
-    directory.set(normalizeDoctorName(doctor), { doctor, department });
+    const profile = hospitalDoctors.find((entry) => entry.name === doctor);
+    directory.set(normalizeDoctorName(doctor), { doctor, department: profile.department });
   });
 
   return directory;
@@ -498,7 +428,7 @@ document.querySelectorAll(".doctor-action[href='appointment.html'], .doctor-sear
   link.setAttribute("href", `${appointmentUrl.pathname}${appointmentUrl.search}`);
 });
 
-document.querySelectorAll(".department-showcase-card a").forEach((link) => {
+document.querySelectorAll(".department-showcase-card[data-department] a").forEach((link) => {
   const departmentCard = link.closest(".department-showcase-card");
   const departmentName = departmentCard?.querySelector("h3")?.textContent?.trim();
 
@@ -526,7 +456,9 @@ const requestedAppointmentPrefill = {
   patientPhone: appointmentQueryParams.get("phone") || "",
   patientEmail: appointmentQueryParams.get("email") || "",
   appointmentDate: appointmentQueryParams.get("date") || "",
-  department: matchedRequestedDoctor?.department || requestedDepartmentName || "",
+  department: matchedRequestedDoctor && appointmentDoctorOptions[requestedDepartmentName]?.includes(matchedRequestedDoctor.doctor)
+    ? requestedDepartmentName
+    : matchedRequestedDoctor?.department || (Object.hasOwn(appointmentDoctorOptions, requestedDepartmentName) ? requestedDepartmentName : ""),
   doctor: matchedRequestedDoctor?.doctor || requestedDoctorName || "",
 };
 
@@ -537,6 +469,16 @@ appointmentForms.forEach((form) => {
   if (!departmentSelect || !doctorSelect) {
     return;
   }
+
+  const initialDepartment = departmentSelect.value;
+  departmentSelect.innerHTML = '<option value="">Select Department</option>';
+  Object.keys(appointmentDoctorOptions).forEach((department) => {
+    const option = document.createElement("option");
+    option.value = department;
+    option.textContent = department;
+    departmentSelect.appendChild(option);
+  });
+  departmentSelect.value = initialDepartment;
 
   const renderDoctorOptions = (department) => {
     const doctors = appointmentDoctorOptions[department] || [];
@@ -560,7 +502,8 @@ appointmentForms.forEach((form) => {
     doctors.forEach((doctor) => {
       const option = document.createElement("option");
       option.value = doctor;
-      option.textContent = doctor;
+      const profile = hospitalDoctors.find((entry) => entry.name === doctor);
+      option.textContent = profile ? `${doctor} — ${profile.qualifications}` : doctor;
       doctorSelect.appendChild(option);
     });
 
@@ -586,6 +529,10 @@ appointmentForms.forEach((form) => {
   if (form.classList.contains("appointment-banner__form")) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+
+      if (!form.reportValidity()) {
+        return;
+      }
 
       const formData = new FormData(form);
       const redirectUrl = new URL("appointment.html", window.location.href);
@@ -720,127 +667,12 @@ const doctorFinderActions = document.querySelector("[data-doctor-results-actions
 if (doctorFinderForm && doctorFinderResults) {
   const departmentField = doctorFinderForm.querySelector('select[name="department"]');
   const specializationField = doctorFinderForm.querySelector('select[name="specialization"]');
-  const availabilityField = doctorFinderForm.querySelector('select[name="availability"]');
   const keywordField = doctorFinderForm.querySelector('input[name="keyword"]');
 
-  const doctorDepartmentMeta = {
-    "Neurosciences": {
-      specialization: "Neurology & Neuro Care",
-      description: "Focused consultation for brain, spine, and advanced neurological care.",
-      keywords: ["brain", "spine", "neurology", "neuro"],
-    },
-    "Orthopaedics & Joint Replacement": {
-      specialization: "Orthopaedic Surgery",
-      description: "Comprehensive care for bones, joints, mobility, and replacement surgery.",
-      keywords: ["bone", "joint", "orthopaedic", "replacement"],
-    },
-    "Cancer Treatment & Radiotherapy": {
-      specialization: "Oncology",
-      description: "Integrated cancer treatment support with radiotherapy and guided care planning.",
-      keywords: ["cancer", "oncology", "radiotherapy", "tumor"],
-    },
-    "Urology": {
-      specialization: "Urology Care",
-      description: "Specialized care for urinary tract, kidney, and men's health conditions.",
-      keywords: ["urology", "urinary", "kidney", "men"],
-    },
-    "Nephrology": {
-      specialization: "Kidney Care",
-      description: "Trusted kidney care, disease management, and long-term renal support.",
-      keywords: ["kidney", "renal", "nephrology"],
-    },
-    "Obstetrics & Gynaecology": {
-      specialization: "Women's Health",
-      description: "Personalized consultation for women's wellness, maternity, and gynec care.",
-      keywords: ["women", "gynaecology", "maternity", "obstetrics"],
-    },
-    "Neonatology & Pediatrics": {
-      specialization: "Child Care",
-      description: "Compassionate care for newborns, infants, children, and growing families.",
-      keywords: ["child", "pediatric", "newborn", "infant"],
-    },
-    "Cardiology & Cardiac Surgery": {
-      specialization: "Cardiac Care",
-      description: "Heart consultation, diagnosis, intervention support, and surgical expertise.",
-      keywords: ["heart", "cardiac", "cardiology", "cardio"],
-    },
-    "General Surgery": {
-      specialization: "General Surgery",
-      description: "Safe and dependable surgical care with coordinated pre and post-op support.",
-      keywords: ["surgery", "general", "procedure"],
-    },
-    "Gastroenterology": {
-      specialization: "Digestive Care",
-      description: "Diagnosis and treatment planning for digestive and gastrointestinal concerns.",
-      keywords: ["digestive", "gastro", "stomach", "liver"],
-    },
-    "ENT": {
-      specialization: "ENT Care",
-      description: "Expert consultation for ear, nose, throat, sinus, and voice conditions.",
-      keywords: ["ent", "ear", "nose", "throat", "sinus"],
-    },
-    "Pulmonary Medicine": {
-      specialization: "Respiratory Care",
-      description: "Advanced respiratory consultation for lungs, breathing, and pulmonary health.",
-      keywords: ["lung", "breathing", "pulmonary", "respiratory"],
-    },
-    "Anaesthesia": {
-      specialization: "Critical Care Support",
-      description: "Specialist support for safe anaesthesia, procedure planning, and recovery care.",
-      keywords: ["anaesthesia", "critical care", "procedure", "surgery"],
-    },
-    "Plastic & Cosmetic Surgery": {
-      specialization: "Cosmetic Surgery",
-      description: "Aesthetic and reconstructive care tailored to each patient’s treatment goals.",
-      keywords: ["cosmetic", "plastic", "aesthetic", "reconstructive"],
-    },
-    "Pediatric Surgery": {
-      specialization: "Pediatric Surgery",
-      description: "Dedicated surgical consultation and care pathways for children and infants.",
-      keywords: ["pediatric", "child", "surgery", "infant"],
-    },
-    "Oral & Maxillofacial Surgery": {
-      specialization: "Maxillofacial Surgery",
-      description: "Specialist care for oral, facial, jaw, and dental surgical conditions.",
-      keywords: ["oral", "jaw", "facial", "maxillofacial"],
-    },
-    "Ophthalmology": {
-      specialization: "Eye Care",
-      description: "Comprehensive consultation for vision, eye health, and ophthalmic concerns.",
-      keywords: ["eye", "vision", "ophthalmology"],
-    },
-  };
-
-  const availabilityOptions = ["Available Today", "Consultation Hours", "On Call"];
-  const opdSlots = [
-    "OPD: Mon - Sat 09:00 AM - 01:00 PM",
-    "OPD: Mon - Sat 10:00 AM - 02:00 PM",
-    "OPD: Mon - Sat 11:00 AM - 03:00 PM",
-    "OPD: Mon - Sat 04:00 PM - 07:00 PM",
-    "OPD: Tue, Thu, Sat 05:00 PM - 07:00 PM",
-  ];
-  const doctorFinderData = Object.entries(appointmentDoctorOptions).flatMap(([department, doctors], departmentIndex) => {
-    const departmentMeta = doctorDepartmentMeta[department] || {
-      specialization: department,
-      description: "Trusted specialist consultation with compassionate and modern patient care.",
-      keywords: [department.toLowerCase()],
-    };
-
-    return doctors.map((doctorName, doctorIndex) => ({
-      id: `${departmentIndex + 1}-${doctorIndex + 1}`,
-      name: doctorName,
-      department,
-      specialization: departmentMeta.specialization,
-      availability: availabilityOptions[(departmentIndex + doctorIndex) % availabilityOptions.length],
-      description: departmentMeta.description,
-      qualifications: doctorIndex % 2 === 0 ? `MBBS, MD (${departmentMeta.specialization})` : `MBBS, MS (${departmentMeta.specialization})`,
-      role: departmentMeta.specialization,
-      opd: opdSlots[(departmentIndex + doctorIndex) % opdSlots.length],
-      keywords: [doctorName, department, departmentMeta.specialization, ...(departmentMeta.keywords || [])].join(" ").toLowerCase(),
-      image: "assets/images/doctors/doctor-default.png",
-      phone: "+919135351111",
-    }));
-  });
+  const doctorFinderData = hospitalDoctors.map((doctor) => ({
+    ...doctor,
+    keywords: [doctor.name, doctor.department, doctor.specialization, doctor.qualifications].join(" ").toLowerCase(),
+  }));
 
   let filteredDoctorResults = [...doctorFinderData];
   let visibleDoctorCount = 10;
@@ -869,12 +701,11 @@ if (doctorFinderForm && doctorFinderResults) {
       </div>
       <div class="doctor-search-card__body">
         <h3>${doctor.name}</h3>
-        <p class="doctor-search-card__qualifications">${doctor.qualifications}</p>
-        <p class="doctor-search-card__speciality">${doctor.role}</p>
-        <p class="doctor-search-card__description">${doctor.description}</p>
-        <p class="doctor-search-card__opd">${doctor.opd}</p>
+        <p class="doctor-search-card__qualifications">${escapeDoctorHtml(doctor.qualifications)}</p>
+        <p class="doctor-search-card__speciality">${escapeDoctorHtml(doctor.specialization)}</p>
+        <p class="doctor-search-card__opd">Contact the hospital for consultation timings.</p>
         <div class="doctor-search-card__actions">
-          <a class="btn btn-primary doctor-search-card__book" href="appointment.html">
+          <a class="btn btn-primary doctor-search-card__book" href="${escapeDoctorHtml(doctorBookingHref(doctor))}">
             <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
             <span>Book Appointment</span>
           </a>
@@ -930,15 +761,13 @@ if (doctorFinderForm && doctorFinderResults) {
     const keyword = (keywordField?.value || "").trim().toLowerCase();
     const department = departmentField?.value || "";
     const specialization = specializationField?.value || "";
-    const availability = availabilityField?.value || "";
 
     const filteredDoctors = doctorFinderData.filter((doctor) => {
       const matchesKeyword = !keyword || doctor.keywords.includes(keyword);
       const matchesDepartment = !department || doctor.department === department;
       const matchesSpecialization = !specialization || doctor.specialization === specialization;
-      const matchesAvailability = !availability || doctor.availability === availability;
 
-      return matchesKeyword && matchesDepartment && matchesSpecialization && matchesAvailability;
+      return matchesKeyword && matchesDepartment && matchesSpecialization;
     });
 
     visibleDoctorCount = 10;
@@ -947,14 +776,19 @@ if (doctorFinderForm && doctorFinderResults) {
 
   fillSelectOptions(departmentField, uniqueDepartments, "All Departments");
   fillSelectOptions(specializationField, uniqueSpecializations, "All Specializations");
-  renderDoctors(doctorFinderData);
+  if (keywordField && requestedDoctorName) {
+    keywordField.value = requestedDoctorName;
+    applyDoctorFilters();
+  } else {
+    renderDoctors(doctorFinderData);
+  }
 
   doctorFinderForm.addEventListener("submit", (event) => {
     event.preventDefault();
     applyDoctorFilters();
   });
 
-  [departmentField, specializationField, availabilityField].forEach((field) => {
+  [departmentField, specializationField].forEach((field) => {
     field?.addEventListener("change", applyDoctorFilters);
   });
 
