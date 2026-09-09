@@ -39,14 +39,14 @@ function boot(search = '') {
 }
 
 const site = boot();
-assert.equal(site.records.length, 44);
-assert.equal(new Set(site.records.map(d => d.name)).size, 44);
-assert.equal((site.home.innerHTML.match(/<article /g) || []).length, 44);
+assert.equal(site.records.length, 40);
+assert.equal(new Set(site.records.map(d => d.name)).size, 40);
+assert.equal((site.home.innerHTML.match(/<article /g) || []).length, 40);
 assert.equal((site.results.innerHTML.match(/<article /g) || []).length, 10);
 site.more.events.click();
 assert.equal((site.results.innerHTML.match(/<article /g) || []).length, 30);
 site.more.events.click();
-assert.equal((site.results.innerHTML.match(/<article /g) || []).length, 44);
+assert.equal((site.results.innerHTML.match(/<article /g) || []).length, 40);
 assert.equal(site.actions.hidden, true);
 
 // Every brochure entry is searchable and its booking URL preserves its department and name.
@@ -62,7 +62,7 @@ for (const record of site.records) {
   assert.equal(new URL(href, 'https://example.test').searchParams.get('doctor'), record.name);
 }
 site.reset.events.click();
-site.specialization.value = 'Dental Surgery';
+site.specialization.value = 'Maxillofacial Surgery';
 site.specialization.events.change();
 assert.equal(site.count.textContent, '2 doctors found');
 assert(site.results.innerHTML.includes('BDS, MDS'));
@@ -103,8 +103,9 @@ for (const department of departments) {
 }
 for (const file of fs.readdirSync('.').filter(file => file.endsWith('.html'))) {
   const html = fs.readFileSync(file, 'utf8');
-  assert(html.indexOf('assets/js/departments.js') < html.indexOf('assets/js/doctors.js'), file);
-  assert(html.indexOf('assets/js/doctors.js') < html.indexOf('assets/js/main.js'), file);
+  const scriptSources = Array.from(html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g), match => match[1]);
+  const scriptOrder = ['assets/js/departments.js', 'assets/js/doctors.js', 'assets/js/main.js'].map(src => scriptSources.indexOf(src));
+  assert(scriptOrder.every(index => index >= 0) && scriptOrder[0] < scriptOrder[1] && scriptOrder[1] < scriptOrder[2], file);
 }
 console.log('Passed: 24 department cards, no facility cards, department dropdowns, surgical booking selections and script order.');
-console.log('Passed: 44 brochure entries, homepage cards, search, filters, pagination, all booking links/prefills, dropdown degrees and unassigned departments.');
+console.log('Passed: 40 directory entries, homepage cards, search, filters, pagination, all booking links/prefills, dropdown degrees and unassigned departments.');

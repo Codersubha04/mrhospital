@@ -503,7 +503,7 @@ appointmentForms.forEach((form) => {
       const option = document.createElement("option");
       option.value = doctor;
       const profile = hospitalDoctors.find((entry) => entry.name === doctor);
-      option.textContent = profile ? `${doctor} — ${profile.qualifications}` : doctor;
+      option.textContent = profile?.qualifications ? `${doctor} — ${profile.qualifications}` : doctor;
       doctorSelect.appendChild(option);
     });
 
