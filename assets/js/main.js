@@ -112,9 +112,12 @@ if (heroHighlights) {
 
   if (highlightsGroup) {
     const setHighlightDistance = () => {
+      heroHighlights.style.height = "";
       const groupHeight = `${highlightsGroup.offsetHeight}px`;
       heroHighlights.style.setProperty("--hero-highlights-distance", groupHeight);
-      heroHighlights.style.height = groupHeight;
+      if (window.innerWidth <= 1023) {
+        heroHighlights.style.height = groupHeight;
+      }
     };
 
     setHighlightDistance();
