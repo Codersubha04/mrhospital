@@ -2192,6 +2192,18 @@ p {
   color: var(--white);
 }
 
+.leader-card--director .leader-name-line,
+.leader-card--director .leader-qualification-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.leader-card--director .leader-qualification-line {
+  margin-top: 0.25rem;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
 .leader-card--director .leader-role {
   margin-bottom: 0.65rem;
   font-size: 0.82rem;
